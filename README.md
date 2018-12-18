@@ -5,9 +5,8 @@ On this package has been implemented ad-hoc the Genlogistic function given in Sc
 
 The package contains:
 
-simleng.py -API
-GenLogitclass.py --Genlogistic cdf, pdf and Loglikelihood function corresponding to this function
+lump-rbf.py -Application with Sample Lumping transformations and Radial Basis Functions Collocation Prediction Method 
 metrics_classifier_statsmodels.py --Metrics to evaluate the performance of classification models
 simulation_statsmodels.py -- the core of computational program
 tools.py -Tools that aid to computation and simulation
-PimasNov132018.wmv---Numerical results of all tests applied to Pima Indias Dataset
+LumpedSampleCollocation.mp4 Computational Tools to predict binary classification on three datasets:Pima, Sonar and Ionosphere
