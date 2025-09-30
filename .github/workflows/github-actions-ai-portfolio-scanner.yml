@@ -153,23 +153,23 @@ jobs:
       if: needs.validate-inputs.outputs.scan_type == 'user'
       run: |
         python main.py \
-          --token ${{ secrets.GITHUB_TOKEN }} \
+          --token ${{ secrets.GH_PAT }} \
           --user "${{ needs.validate-inputs.outputs.target_user }}" \
           --config config.yaml \
           --output-dir ${{ env.PORTFOLIO_OUTPUT_DIR }}
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
     - name: Run portfolio scan (Repositories)
       if: needs.validate-inputs.outputs.scan_type == 'repos'
       run: |
         python main.py \
-          --token ${{ secrets.GITHUB_TOKEN }} \
+          --token ${{ secrets.GH_PAT }} \
           --repos "${{ needs.validate-inputs.outputs.target_repos }}" \
           --config config.yaml \
           --output-dir ${{ env.PORTFOLIO_OUTPUT_DIR }}
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
     - name: Upload scan results
       uses: actions/upload-artifact@v3
@@ -228,7 +228,7 @@ jobs:
       if: github.repository_owner == needs.validate-inputs.outputs.target_user
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GH_PAT }}
         publish_dir: downloaded-results
         destination_dir: portfolio-${{ github.run_number }}
         keep_files: true
@@ -465,7 +465,7 @@ jobs:
 # REQUIRED SECRETS AND VARIABLES:
 #
 # Repository Secrets:
-#   - GITHUB_TOKEN (automatically provided)
+#   - GH_PAT (automatically provided)
 #
 # Repository Variables (optional):
 #   - SLACK_WEBHOOK_URL (for notifications)
@@ -548,7 +548,7 @@ Repository Structure:
 Permissions:
 
 
-GITHUB_TOKEN (automatically provided)
+GITHUB_TOKEN:GH_PAT (automatically provided)
 Repository permissions for Issues, Pages, and Actions
 
 

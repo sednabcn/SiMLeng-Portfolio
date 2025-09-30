@@ -26,7 +26,7 @@ jobs:
     
     - name: Generate portfolio
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         TARGET_USER: sednabcn
       run: |
         python .github/scripts/generate_portfolio.py
