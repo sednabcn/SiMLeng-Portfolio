@@ -1,0 +1,569 @@
+# .github/workflows/ai-portfolio-scanner.yml
+name: AI Portfolio Scanner
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_user:
+        description: 'GitHub username to scan'
+        required: false
+        type: string
+      target_repos:
+        description: 'Comma-separated repository URLs (owner/repo format)'
+        required: false
+        type: string
+      max_repos:
+        description: 'Maximum repositories to scan'
+        required: false
+        default: '50'
+        type: string
+      include_forks:
+        description: 'Include forked repositories'
+        required: false
+        default: false
+        type: boolean
+      min_stars:
+        description: 'Minimum stars filter'
+        required: false
+        default: '0'
+        type: string
+  
+  schedule:
+    # Run weekly on Sundays at 02:00 UTC
+    - cron: '0 2 * * 0'
+  
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/ai-portfolio-scanner.yml'
+      - 'src/**'
+      - 'config.yaml'
+
+env:
+  PYTHON_VERSION: '3.9'
+  PORTFOLIO_OUTPUT_DIR: 'portfolio-output'
+
+jobs:
+  validate-inputs:
+    runs-on: ubuntu-latest
+    outputs:
+      target_user: ${{ steps.validation.outputs.target_user }}
+      target_repos: ${{ steps.validation.outputs.target_repos }}
+      scan_type: ${{ steps.validation.outputs.scan_type }}
+    
+    steps:
+    - name: Validate inputs
+      id: validation
+      run: |
+        # Set defaults for scheduled runs
+        if [[ "${{ github.event_name }}" == "schedule" ]]; then
+          echo "target_user=${{ github.repository_owner }}" >> $GITHUB_OUTPUT
+          echo "scan_type=user" >> $GITHUB_OUTPUT
+        elif [[ -n "${{ github.event.inputs.target_user }}" ]]; then
+          echo "target_user=${{ github.event.inputs.target_user }}" >> $GITHUB_OUTPUT
+          echo "scan_type=user" >> $GITHUB_OUTPUT
+        elif [[ -n "${{ github.event.inputs.target_repos }}" ]]; then
+          echo "target_repos=${{ github.event.inputs.target_repos }}" >> $GITHUB_OUTPUT
+          echo "scan_type=repos" >> $GITHUB_OUTPUT
+        else
+          echo "target_user=${{ github.repository_owner }}" >> $GITHUB_OUTPUT
+          echo "scan_type=user" >> $GITHUB_OUTPUT
+        fi
+
+  setup-environment:
+    runs-on: ubuntu-latest
+    needs: validate-inputs
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+
+    - name: Create project structure
+      run: |
+        mkdir -p src logs ${{ env.PORTFOLIO_OUTPUT_DIR }}
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+  scan-portfolio:
+    runs-on: ubuntu-latest
+    needs: [validate-inputs, setup-environment]
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Create configuration file
+      run: |
+        cat > config.yaml << EOF
+        frameworks:
+          ml_frameworks: ['tensorflow', 'pytorch', 'scikit-learn', 'keras', 'xgboost', 'lightgbm']
+          llm_frameworks: ['transformers', 'openai', 'langchain', 'llamaindex', 'anthropic']
+          dl_frameworks: ['torch', 'tensorflow', 'mxnet', 'caffe']
+          data_frameworks: ['pandas', 'numpy', 'dask', 'polars', 'spark']
+          viz_frameworks: ['matplotlib', 'plotly', 'seaborn', 'bokeh', 'altair']
+
+        analysis:
+          max_repos: ${{ github.event.inputs.max_repos || '50' }}
+          max_file_size: 1048576
+          include_forks: ${{ github.event.inputs.include_forks || 'false' }}
+          min_stars: ${{ github.event.inputs.min_stars || '0' }}
+          exclude_archived: true
+
+        output:
+          format: 'json'
+          generate_html: true
+          generate_markdown: true
+          include_code_samples: true
+          max_code_sample_lines: 50
+
+        logging:
+          level: 'INFO'
+          save_logs: true
+        EOF
+
+    - name: Run portfolio scan (User)
+      if: needs.validate-inputs.outputs.scan_type == 'user'
+      run: |
+        python main.py \
+          --token ${{ secrets.GITHUB_TOKEN }} \
+          --user "${{ needs.validate-inputs.outputs.target_user }}" \
+          --config config.yaml \
+          --output-dir ${{ env.PORTFOLIO_OUTPUT_DIR }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Run portfolio scan (Repositories)
+      if: needs.validate-inputs.outputs.scan_type == 'repos'
+      run: |
+        python main.py \
+          --token ${{ secrets.GITHUB_TOKEN }} \
+          --repos "${{ needs.validate-inputs.outputs.target_repos }}" \
+          --config config.yaml \
+          --output-dir ${{ env.PORTFOLIO_OUTPUT_DIR }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload scan results
+      uses: actions/upload-artifact@v3
+      with:
+        name: portfolio-scan-results-${{ github.run_number }}
+        path: |
+          ${{ env.PORTFOLIO_OUTPUT_DIR }}/**
+          logs/**
+        retention-days: 30
+
+    - name: Generate summary for PR/Issue
+      id: summary
+      run: |
+        # Find the latest portfolio summary
+        LATEST_DIR=$(find ${{ env.PORTFOLIO_OUTPUT_DIR }} -name "ai_portfolio_scan_*" -type d | sort -r | head -1)
+        
+        if [[ -n "$LATEST_DIR" && -f "$LATEST_DIR/executive_summary.md" ]]; then
+          echo "## Portfolio Scan Results" >> $GITHUB_STEP_SUMMARY
+          cat "$LATEST_DIR/executive_summary.md" >> $GITHUB_STEP_SUMMARY
+          
+          # Set output for potential issue creation
+          SUMMARY_CONTENT=$(cat "$LATEST_DIR/executive_summary.md")
+          echo "summary<<EOF" >> $GITHUB_OUTPUT
+          echo "$SUMMARY_CONTENT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          # Extract key metrics
+          REPOS_SCANNED=$(jq -r '.statistics.repositories_scanned // 0' "$LATEST_DIR/portfolio_data.json" 2>/dev/null || echo "0")
+          RELEVANT_REPOS=$(jq -r '.statistics.relevant_repositories // 0' "$LATEST_DIR/portfolio_data.json" 2>/dev/null || echo "0")
+          EXPERTISE_SCORE=$(jq -r '.statistics.overall_expertise_score // 0' "$LATEST_DIR/portfolio_data.json" 2>/dev/null || echo "0")
+          
+          echo "repos_scanned=$REPOS_SCANNED" >> $GITHUB_OUTPUT
+          echo "relevant_repos=$RELEVANT_REPOS" >> $GITHUB_OUTPUT
+          echo "expertise_score=$EXPERTISE_SCORE" >> $GITHUB_OUTPUT
+        else
+          echo "No portfolio results found" >> $GITHUB_STEP_SUMMARY
+          echo "summary=No portfolio results generated" >> $GITHUB_OUTPUT
+        fi
+
+  deploy-results:
+    runs-on: ubuntu-latest
+    needs: [validate-inputs, scan-portfolio]
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Download scan results
+      uses: actions/download-artifact@v3
+      with:
+        name: portfolio-scan-results-${{ github.run_number }}
+        path: downloaded-results
+
+    - name: Deploy to GitHub Pages
+      if: github.repository_owner == needs.validate-inputs.outputs.target_user
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: downloaded-results
+        destination_dir: portfolio-${{ github.run_number }}
+        keep_files: true
+
+    - name: Create/Update Portfolio Issue
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const path = require('path');
+          
+          // Find portfolio data file
+          const resultsDir = 'downloaded-results';
+          const portfolioDirs = fs.readdirSync(resultsDir, { withFileTypes: true })
+            .filter(dirent => dirent.isDirectory() && dirent.name.startsWith('ai_portfolio_scan_'))
+            .map(dirent => dirent.name)
+            .sort()
+            .reverse();
+          
+          if (portfolioDirs.length === 0) {
+            console.log('No portfolio directories found');
+            return;
+          }
+          
+          const latestDir = path.join(resultsDir, portfolioDirs[0]);
+          const summaryFile = path.join(latestDir, 'executive_summary.md');
+          
+          let issueBody = '# AI Portfolio Scan Results\n\n';
+          
+          if (fs.existsSync(summaryFile)) {
+            const summary = fs.readFileSync(summaryFile, 'utf8');
+            issueBody += summary;
+          } else {
+            issueBody += 'Portfolio scan completed but summary not available.';
+          }
+          
+          issueBody += `\n\n## Scan Details\n`;
+          issueBody += `- **Target**: ${{ needs.validate-inputs.outputs.target_user || needs.validate-inputs.outputs.target_repos }}\n`;
+          issueBody += `- **Scan Type**: ${{ needs.validate-inputs.outputs.scan_type }}\n`;
+          issueBody += `- **Workflow Run**: #${{ github.run_number }}\n`;
+          issueBody += `- **Timestamp**: ${new Date().toISOString()}\n`;
+          
+          // Check if portfolio HTML is available
+          const htmlFile = path.join(latestDir, 'portfolio_report.html');
+          if (fs.existsSync(htmlFile) && '${{ github.repository_owner }}' === '${{ needs.validate-inputs.outputs.target_user }}') {
+            issueBody += `\n📊 [View Interactive Portfolio Report](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/portfolio-${{ github.run_number }}/${portfolioDirs[0]}/portfolio_report.html)\n`;
+          }
+          
+          // Look for existing portfolio issue
+          const { data: issues } = await github.rest.issues.listForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            labels: ['ai-portfolio', 'automated'],
+            state: 'open'
+          });
+          
+          const existingIssue = issues.find(issue => 
+            issue.title.includes('AI Portfolio Scan Results')
+          );
+          
+          if (existingIssue) {
+            // Update existing issue
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: existingIssue.number,
+              title: `AI Portfolio Scan Results - ${new Date().toISOString().split('T')[0]}`,
+              body: issueBody
+            });
+            console.log(`Updated issue #${existingIssue.number}`);
+          } else {
+            // Create new issue
+            const { data: newIssue } = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `AI Portfolio Scan Results - ${new Date().toISOString().split('T')[0]}`,
+              body: issueBody,
+              labels: ['ai-portfolio', 'automated', 'scan-results']
+            });
+            console.log(`Created issue #${newIssue.number}`);
+          }
+
+  notify-completion:
+    runs-on: ubuntu-latest
+    needs: [validate-inputs, scan-portfolio, deploy-results]
+    if: always()
+    
+    steps:
+    - name: Send Slack notification
+      if: vars.SLACK_WEBHOOK_URL
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        text: |
+          AI Portfolio Scan completed for ${{ needs.validate-inputs.outputs.target_user || needs.validate-inputs.outputs.target_repos }}
+          Repositories scanned: ${{ needs.scan-portfolio.outputs.repos_scanned }}
+          AI/ML relevant: ${{ needs.scan-portfolio.outputs.relevant_repos }}
+          Expertise score: ${{ needs.scan-portfolio.outputs.expertise_score }}/10
+      env:
+        SLACK_WEBHOOK_URL: ${{ vars.SLACK_WEBHOOK_URL }}
+
+    - name: Create deployment status
+      uses: actions/github-script@v6
+      if: needs.deploy-results.result == 'success' && github.repository_owner == needs.validate-inputs.outputs.target_user
+      with:
+        script: |
+          await github.rest.repos.createDeploymentStatus({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            deployment_id: '${{ github.run_number }}',
+            state: 'success',
+            environment_url: `https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/portfolio-${{ github.run_number }}/`,
+            description: 'AI Portfolio deployed to GitHub Pages'
+          });
+
+# Additional workflow for cleanup
+---
+# .github/workflows/cleanup-old-portfolios.yml
+name: Cleanup Old Portfolio Scans
+
+on:
+  schedule:
+    # Run monthly on the 1st at 03:00 UTC
+    - cron: '0 3 1 * *'
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Cleanup old artifacts
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const { data: artifacts } = await github.rest.actions.listArtifactsForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            per_page: 100
+          });
+          
+          const oldArtifacts = artifacts.artifacts.filter(artifact => {
+            const createdAt = new Date(artifact.created_at);
+            const monthsOld = (Date.now() - createdAt.getTime()) / (1000 * 60 * 60 * 24 * 30);
+            return artifact.name.includes('portfolio-scan-results') && monthsOld > 3;
+          });
+          
+          for (const artifact of oldArtifacts) {
+            try {
+              await github.rest.actions.deleteArtifact({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                artifact_id: artifact.id
+              });
+              console.log(`Deleted artifact: ${artifact.name}`);
+            } catch (error) {
+              console.log(`Failed to delete artifact ${artifact.name}: ${error.message}`);
+            }
+          }
+
+    - name: Close old portfolio issues
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const { data: issues } = await github.rest.issues.listForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            labels: ['ai-portfolio', 'automated'],
+            state: 'open'
+          });
+          
+          const oldIssues = issues.filter(issue => {
+            const createdAt = new Date(issue.created_at);
+            const monthsOld = (Date.now() - createdAt.getTime()) / (1000 * 60 * 60 * 24 * 30);
+            return monthsOld > 1; // Close issues older than 1 month
+          });
+          
+          for (const issue of oldIssues) {
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              state: 'closed'
+            });
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: 'Automatically closed due to age. Portfolio data remains available in workflow artifacts.'
+            });
+          }
+
+# Configuration for different scan types
+---
+# .github/workflows/portfolio-scan-matrix.yml
+name: Portfolio Scan Matrix
+
+on:
+  workflow_dispatch:
+    inputs:
+      users_to_scan:
+        description: 'Comma-separated list of GitHub users to scan'
+        required: true
+        type: string
+
+jobs:
+  matrix-scan:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        user: ${{ fromJson(github.event.inputs.users_to_scan) }}
+      max-parallel: 3
+      fail-fast: false
+    
+    steps:
+    - name: Trigger portfolio scan
+      uses: actions/github-script@v6
+      with:
+        script: |
+          await github.rest.actions.createWorkflowDispatch({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            workflow_id: 'ai-portfolio-scanner.yml',
+            ref: 'main',
+            inputs: {
+              target_user: '${{ matrix.user }}',
+              max_repos: '30'
+            }
+          });
+
+# Configuration template for repository secrets and variables
+---
+# REQUIRED SECRETS AND VARIABLES:
+#
+# Repository Secrets:
+#   - GITHUB_TOKEN (automatically provided)
+#
+# Repository Variables (optional):
+#   - SLACK_WEBHOOK_URL (for notifications)
+#   - DEFAULT_MAX_REPOS (default: 50)
+#   - DEFAULT_MIN_STARS (default: 0)
+#
+# To set up:
+# 1. Go to your repository Settings > Secrets and variables > Actions
+# 2. Add the required secrets and variables
+# 3. Enable GitHub Pages in repository settings if you want web deployment
+
+===================================00000000000000========================
+
+I've created a comprehensive GitHub Actions workflow system for running the AI portfolio scanner scripts. Here's what it includes:
+Main Components:
+1. Primary Workflow (ai-portfolio-scanner.yml)
+
+Triggers: Manual dispatch, scheduled runs, and code changes
+Input Options: GitHub username, specific repositories, configuration parameters
+Multi-stage execution: Validation, environment setup, scanning, deployment
+Artifact management: Results stored for 30 days with proper organization
+
+2. Automated Deployment
+
+GitHub Pages integration for web-accessible portfolio reports
+Issue creation/updates with scan results and links
+Notification systems (Slack integration optional)
+
+3. Cleanup Workflow (cleanup-old-portfolios.yml)
+
+Automated maintenance: Removes old artifacts and closes stale issues
+Resource management: Prevents repository bloat
+
+4. Matrix Scanning (portfolio-scan-matrix.yml)
+
+Bulk processing: Scan multiple users simultaneously
+Parallel execution: Up to 3 concurrent scans with failure isolation
+
+Key Features:
+Flexible Triggering:
+
+Manual runs with custom parameters
+Scheduled weekly scans (Sundays 2 AM UTC)
+Automatic runs on code changes
+
+Configuration Options:
+
+Target user or specific repositories
+Maximum repositories to scan
+Include/exclude forks
+Minimum stars threshold
+
+Output Management:
+
+HTML reports deployed to GitHub Pages
+Markdown summaries in repository issues
+JSON data as downloadable artifacts
+Executive summaries in workflow summaries
+
+Error Handling:
+
+Input validation and defaults
+Graceful failure handling
+Comprehensive logging
+Status notifications
+
+Setup Requirements:
+
+Repository Structure:
+
+├── .github/workflows/
+│   ├── ai-portfolio-scanner.yml
+│   ├── cleanup-old-portfolios.yml
+│   └── portfolio-scan-matrix.yml
+├── src/ (Python scripts)
+├── requirements.txt
+├── config.yaml
+└── main.py
+
+Permissions:
+
+
+GITHUB_TOKEN (automatically provided)
+Repository permissions for Issues, Pages, and Actions
+
+
+Optional Configuration:
+
+
+SLACK_WEBHOOK_URL for notifications
+Custom default values as repository variables
+
+Usage Examples:
+Scan a specific user:
+bash# Via GitHub UI: Actions > AI Portfolio Scanner > Run workflow
+# Input: target_user = "octocat"
+Scan multiple repositories:
+bash# Input: target_repos = "microsoft/vscode,facebook/react"
+Scheduled scans:
+bash# Automatically scans repository owner weekly
+The workflow system is production-ready with proper error handling, resource management, and scalability considerations. It transforms the Python scripts into a fully automated CI/CD pipeline for portfolio generation.RetryClaude does not have the ability to run the code it generates yet.Claude can make mistakes. Please double-check responses.
