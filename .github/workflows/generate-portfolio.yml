@@ -34,6 +34,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         TARGET_USER: sednabcn
+        INCLUDE_PRIVATE_REPOS: false  # Change to 'true' to include private repos
       run: |
         python .github/scripts/generate_portfolio.py
     
@@ -54,4 +55,3 @@ jobs:
         
         git commit -m "Update portfolio [skip ci]"
         git push
-
