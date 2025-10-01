@@ -1,0 +1,81 @@
+{
+  "total_repositories": 1,
+  "generation_date": "2025-10-01T18:10:48.803934",
+  "repositories": [
+    {
+      "name": "NLP-Spacy-Transformers",
+      "full_name": "sednabcn/NLP-Spacy-Transformers",
+      "description": "Tutorial and Applications of Spacy and Transformers to Natural Language Processing",
+      "url": "https://github.com/sednabcn/NLP-Spacy-Transformers",
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "topics": [],
+      "created_at": "2024-04-06T15:27:52Z",
+      "updated_at": "2025-02-21T15:41:15Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [
+          "transformers"
+        ],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 3.0
+    }
+  ],
+  "insights": {
+    "total_stars": 0,
+    "total_forks": 0,
+    "languages": {
+      "Jupyter Notebook": {
+        "count": 1,
+        "percentage": 100.0
+      }
+    },
+    "frameworks_summary": {},
+    "activity_timeline": []
+  },
+  "categories": {},
+  "skills": {
+    "programming_languages": {
+      "Jupyter Notebook": {
+        "count": 1,
+        "percentage": 100.0
+      }
+    },
+    "ml_frameworks": {},
+    "proficiency_levels": {}
+  },
+  "highlights": [
+    {
+      "name": "NLP-Spacy-Transformers",
+      "full_name": "sednabcn/NLP-Spacy-Transformers",
+      "description": "Tutorial and Applications of Spacy and Transformers to Natural Language Processing",
+      "url": "https://github.com/sednabcn/NLP-Spacy-Transformers",
+      "stars": 0,
+      "forks": 0,
+      "relevance_score": 3.0,
+      "key_frameworks": [],
+      "topics": [],
+      "highlights": []
+    }
+  ],
+  "expertise_metrics": {
+    "machine_learning": 5.0,
+    "deep_learning": 4.0,
+    "data_science": 6.0,
+    "software_engineering": 5.0,
+    "research_ability": 4.0,
+    "collaboration": 3.0,
+    "overall_score": 5.0
+  }
+}
