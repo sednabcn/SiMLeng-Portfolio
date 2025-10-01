@@ -5,10 +5,10 @@ on:
     branches: [ master, main ]
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0'  # Weekly on Sunday (fixed syntax)
+    - cron: '0 0 * * 0'
 
 permissions:
-  contents: write  # Required to push changes
+  contents: write
 
 jobs:
   generate:
@@ -16,10 +16,10 @@ jobs:
     
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
-        token: ${{ secrets.GH_PAT}}
-        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+        persist-credentials: true
     
     - name: Setup Python
       uses: actions/setup-python@v4
@@ -32,7 +32,7 @@ jobs:
     
     - name: Generate portfolio
       env:
-        GITHUB_TOKEN: ${{ secrets.GH_PAT}}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         TARGET_USER: sednabcn
       run: |
         python .github/scripts/generate_portfolio.py
@@ -44,10 +44,9 @@ jobs:
     - name: Commit and push changes
       run: |
         git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add -f docs/
         
-        # Check if there are changes to commit
         if git diff --staged --quiet; then
           echo "No changes to commit"
           exit 0
@@ -55,3 +54,4 @@ jobs:
         
         git commit -m "Update portfolio [skip ci]"
         git push
+
