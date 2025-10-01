@@ -18,7 +18,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       with:
-        token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GH_PAT}}
         fetch-depth: 0
     
     - name: Setup Python
@@ -32,7 +32,7 @@ jobs:
     
     - name: Generate portfolio
       env:
-        GITHUB_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_PAT}}
         TARGET_USER: sednabcn
       run: |
         python .github/scripts/generate_portfolio.py

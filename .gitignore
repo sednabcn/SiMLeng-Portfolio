@@ -4,5 +4,21 @@ __pycache__/
 .env
 *.token
 venv/
-docs/
 docs-old/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
