@@ -1,11 +1,11 @@
 """Project status detection for portfolio."""
 from datetime import datetime, timedelta
-from typing import Optional
-from data_models import RepositoryData, PortfolioConfig
+from typing import Optional, Dict, Any
+from data_models import RepositoryData
 
 def determine_project_status(
     repo: RepositoryData, 
-    config: Optional[PortfolioConfig] = None
+    config: Optional[Dict[str, Any]] = None
 ) -> str:
     """
     Determine project status based on last update date and configuration.
@@ -20,7 +20,8 @@ def determine_project_status(
     """
     # Check for manual override in config
     if config:
-        override = config.get_status_override(repo.name)
+        overrides = config.get('status_overrides', {})
+        override = overrides.get(repo.name)
         if override:
             return override.lower()
     
@@ -36,7 +37,7 @@ def determine_project_status(
     # Determine by last update date
     try:
         # Use pushed_at if available, otherwise updated_at
-        date_str = repo.pushed_at or repo.updated_at
+        date_str = getattr(repo, 'pushed_at', None) or repo.updated_at
         last_update = datetime.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ')
         now = datetime.utcnow()
         days_since_update = (now - last_update).days
@@ -83,7 +84,7 @@ def get_status_badge(status: str) -> dict:
     return status_info.get(status, status_info['recent'])
 
 
-def group_by_status(repos: list[RepositoryData]) -> dict:
+def group_by_status(repos: list) -> dict:
     """
     Group repositories by their status.
     
@@ -103,7 +104,7 @@ def group_by_status(repos: list[RepositoryData]) -> dict:
     return groups
 
 
-def get_status_summary(repos: list[RepositoryData]) -> dict:
+def get_status_summary(repos: list) -> dict:
     """
     Get summary statistics for project statuses.
     
@@ -132,7 +133,7 @@ def get_status_summary(repos: list[RepositoryData]) -> dict:
     }
 
 
-def sort_by_status(repos: list[RepositoryData]) -> list[RepositoryData]:
+def sort_by_status(repos: list) -> list:
     """
     Sort repositories with current first, then recent, then past.
     Within each group, sort by relevance score.
@@ -143,7 +144,7 @@ def sort_by_status(repos: list[RepositoryData]) -> list[RepositoryData]:
         repos,
         key=lambda r: (
             status_order.get(r.project_status or 'recent', 1),
-            -r.relevance_score,
-            -r.stargazers_count
+            -r.ai_ml_relevance_score,
+            -r.stars
         )
     )
