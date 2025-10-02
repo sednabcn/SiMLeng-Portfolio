@@ -15,7 +15,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent / 'src'))
 from repo_analyzer import RepoAnalyzer
 from code_analyzer import CodeAnalyzer
 from framework_detector import FrameworkDetector
-from portfolio_builder import PortfolioBuilder, PortfolioData
+from portfolio_builder import PortfolioBuilder
+from data_models import RepositoryData, PortfolioData
 from data_models import RepositoryData
 from status_detector import determine_project_status
 from config_loader import ConfigLoader
