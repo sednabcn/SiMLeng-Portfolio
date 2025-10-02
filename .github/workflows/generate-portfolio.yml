@@ -1,15 +1,12 @@
 name: Generate Portfolio
-
 on:
   push:
     branches: [ master, main ]
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0'
-
+    - cron: '0 0 * * 0'  # Run weekly on Sundays at midnight
 permissions:
   contents: write
-
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -29,12 +26,20 @@ jobs:
     - name: Install dependencies
       run: |
         pip install aiohttp pyyaml jinja2
+
+    - name: Test token permissions
+      env:	   
+        GITHUB_TOKEN: ${{ secrets.PORTFOLIO_SCANNER }}
+      run: |
+        echo "Testing token..."
+        curl -H "Authorization: token $GITHUB_TOKEN" \
+              https://api.github.com/user/repos?type=all&per_page=5
     
     - name: Generate portfolio
       env:
         GITHUB_TOKEN: ${{ secrets.PORTFOLIO_SCANNER }}
         TARGET_USER: sednabcn
-        INCLUDE_PRIVATE_REPOS: true  # Change to 'true' to include private repos
+        INCLUDE_PRIVATE_REPOS: true  # Set to 'true' to include private repos
       run: |
         python .github/scripts/generate_portfolio.py
     
