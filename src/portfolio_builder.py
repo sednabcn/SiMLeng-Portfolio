@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Portfolio Builder with status badge rendering"""
+"""Portfolio Builder with status badge rendering and status grouping"""
 import json
 import logging
 from typing import Dict, List, Any
@@ -52,7 +52,7 @@ class PortfolioBuilder:
         
         # Top 5 projects by score (not just stars!)
         portfolio.highlights = []
-        for repo in portfolio.repositories[:5]:  # Already sorted by score
+        for repo in portfolio.repositories[:5]:
             portfolio.highlights.append({
                 'name': repo.name,
                 'full_name': repo.full_name,
@@ -62,7 +62,7 @@ class PortfolioBuilder:
                 'forks': repo.forks,
                 'language': repo.language,
                 'relevance_score': repo.ai_ml_relevance_score,
-                'project_status': repo.project_status,  # Include status
+                'project_status': repo.project_status,
                 'key_frameworks': [],
                 'topics': repo.topics[:5] if repo.topics else [],
                 'highlights': []
@@ -87,12 +87,15 @@ class PortfolioBuilder:
         return portfolio
     
     def generate_html_report(self, portfolio) -> str:
-        """Generate improved HTML with status badges"""
+        """Generate HTML with status-based grouping"""
         
-        # Separate top 5 from the rest
+        # Group repositories by status
+        current_repos = [r for r in portfolio.repositories if r.project_status == 'current']
+        recent_repos = [r for r in portfolio.repositories if r.project_status == 'recent']
+        past_repos = [r for r in portfolio.repositories if r.project_status == 'past']
+        
+        # Top 5 for separate section
         top_5 = portfolio.highlights
-        all_repos = portfolio.repositories
-        other_repos = all_repos[5:] if len(all_repos) > 5 else []
         
         template = Template("""<!DOCTYPE html>
 <html lang="en">
@@ -158,7 +161,6 @@ class PortfolioBuilder:
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
-            cursor: pointer;
         }
         
         .stat-card:hover {
@@ -183,16 +185,43 @@ class PortfolioBuilder:
         
         h2 {
             font-size: 2em;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            margin-top: 40px;
             color: #667eea;
             border-bottom: 3px solid #667eea;
             padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        .section-badge {
+            font-size: 0.5em;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .section-badge.current {
+            background: #22c55e;
+            color: white;
+        }
+        
+        .section-badge.recent {
+            background: #eab308;
+            color: #333;
         }
         
         .project-grid {
             display: grid;
             gap: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
         
         .project-card {
@@ -274,7 +303,6 @@ class PortfolioBuilder:
             color: #333;
         }
         
-        /* Status badges */
         .badge-status {
             font-weight: 600;
             text-transform: uppercase;
@@ -314,41 +342,11 @@ class PortfolioBuilder:
             color: #555;
         }
         
-        .expandable {
-            margin-bottom: 30px;
-        }
-        
-        .expand-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
+        .no-projects {
+            color: #999;
+            font-style: italic;
+            padding: 20px;
             text-align: center;
-        }
-        
-        .expand-button:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-        
-        .expand-button:active {
-            transform: scale(0.98);
-        }
-        
-        .expandable-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-        
-        .expandable-content.expanded {
-            max-height: 20000px;
         }
         
         .languages {
@@ -407,7 +405,7 @@ class PortfolioBuilder:
         </header>
         
         <div class="stats">
-            <div class="stat-card" onclick="scrollToProjects()">
+            <div class="stat-card">
                 <span class="stat-number">{{ total_repos }}</span>
                 <span class="stat-label">Repositories</span>
             </div>
@@ -425,8 +423,74 @@ class PortfolioBuilder:
             </div>
         </div>
         
-        <div class="content" id="projects">
-            <h2>Top Projects</h2>
+        <div class="content">
+            {% if current_repos %}
+            <h2>
+                <span class="section-badge current">CURRENT</span>
+                Active Projects
+            </h2>
+            <div class="project-grid">
+                {% for repo in current_repos %}
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3><a href="{{ repo.url }}" target="_blank">{{ repo.name }}</a></h3>
+                        <span class="badge badge-status current">current</span>
+                    </div>
+                    <p class="project-description">{{ repo.description or 'No description available' }}</p>
+                    <div class="project-meta">
+                        <span class="badge badge-stars">{{ repo.stars }}</span>
+                        <span class="badge badge-forks">{{ repo.forks }}</span>
+                        <span class="badge badge-score">Score: {{ repo.ai_ml_relevance_score|round(1) }}/10</span>
+                        {% if repo.language %}
+                        <span class="badge badge-language">{{ repo.language }}</span>
+                        {% endif %}
+                    </div>
+                    {% if repo.topics %}
+                    <div class="topics">
+                        {% for topic in repo.topics[:5] %}
+                        <span class="topic-tag">{{ topic }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            {% if recent_repos %}
+            <h2>
+                <span class="section-badge recent">RECENT</span>
+                Recent Projects
+            </h2>
+            <div class="project-grid">
+                {% for repo in recent_repos %}
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3><a href="{{ repo.url }}" target="_blank">{{ repo.name }}</a></h3>
+                        <span class="badge badge-status recent">recent</span>
+                    </div>
+                    <p class="project-description">{{ repo.description or 'No description available' }}</p>
+                    <div class="project-meta">
+                        <span class="badge badge-stars">{{ repo.stars }}</span>
+                        <span class="badge badge-forks">{{ repo.forks }}</span>
+                        <span class="badge badge-score">Score: {{ repo.ai_ml_relevance_score|round(1) }}/10</span>
+                        {% if repo.language %}
+                        <span class="badge badge-language">{{ repo.language }}</span>
+                        {% endif %}
+                    </div>
+                    {% if repo.topics %}
+                    <div class="topics">
+                        {% for topic in repo.topics[:5] %}
+                        <span class="topic-tag">{{ topic }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <h2>Top Projects by Score</h2>
             <div class="project-grid">
                 {% for h in highlights %}
                 <div class="project-card">
@@ -456,41 +520,33 @@ class PortfolioBuilder:
                 {% endfor %}
             </div>
             
-            {% if other_repos %}
-            <div class="expandable">
-                <button class="expand-button" onclick="toggleExpand()" id="expandBtn">
-                    Show All {{ other_count }} More Projects
-                </button>
-                <div class="expandable-content" id="allProjects">
-                    <div class="project-grid" style="margin-top: 20px;">
-                        {% for repo in other_repos %}
-                        <div class="project-card">
-                            <div class="project-header">
-                                <h3><a href="{{ repo.url }}" target="_blank">{{ repo.name }}</a></h3>
-                                {% if repo.project_status %}
-                                <span class="badge badge-status {{ repo.project_status }}">{{ repo.project_status }}</span>
-                                {% endif %}
-                            </div>
-                            <p class="project-description">{{ repo.description or 'No description available' }}</p>
-                            <div class="project-meta">
-                                <span class="badge badge-stars">{{ repo.stars }}</span>
-                                <span class="badge badge-forks">{{ repo.forks }}</span>
-                                <span class="badge badge-score">Score: {{ repo.ai_ml_relevance_score|round(1) }}/10</span>
-                                {% if repo.language %}
-                                <span class="badge badge-language">{{ repo.language }}</span>
-                                {% endif %}
-                            </div>
-                            {% if repo.topics %}
-                            <div class="topics">
-                                {% for topic in repo.topics[:5] %}
-                                <span class="topic-tag">{{ topic }}</span>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div>
+            {% if past_repos %}
+            <h2>Past Projects</h2>
+            <div class="project-grid">
+                {% for repo in past_repos %}
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3><a href="{{ repo.url }}" target="_blank">{{ repo.name }}</a></h3>
+                        <span class="badge badge-status past">past</span>
+                    </div>
+                    <p class="project-description">{{ repo.description or 'No description available' }}</p>
+                    <div class="project-meta">
+                        <span class="badge badge-stars">{{ repo.stars }}</span>
+                        <span class="badge badge-forks">{{ repo.forks }}</span>
+                        <span class="badge badge-score">Score: {{ repo.ai_ml_relevance_score|round(1) }}/10</span>
+                        {% if repo.language %}
+                        <span class="badge badge-language">{{ repo.language }}</span>
+                        {% endif %}
+                    </div>
+                    {% if repo.topics %}
+                    <div class="topics">
+                        {% for topic in repo.topics[:5] %}
+                        <span class="topic-tag">{{ topic }}</span>
                         {% endfor %}
                     </div>
+                    {% endif %}
                 </div>
+                {% endfor %}
             </div>
             {% endif %}
             
@@ -510,26 +566,6 @@ class PortfolioBuilder:
             <p>Powered by GitHub API</p>
         </footer>
     </div>
-    
-    <script>
-        function toggleExpand() {
-            const content = document.getElementById('allProjects');
-            const button = document.getElementById('expandBtn');
-            const isExpanded = content.classList.contains('expanded');
-            
-            if (isExpanded) {
-                content.classList.remove('expanded');
-                button.textContent = 'Show All {{ other_count }} More Projects';
-            } else {
-                content.classList.add('expanded');
-                button.textContent = 'Hide Additional Projects';
-            }
-        }
-        
-        function scrollToProjects() {
-            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
 </body>
 </html>""")
         
@@ -539,9 +575,10 @@ class PortfolioBuilder:
             stars=portfolio.insights['total_stars'],
             forks=portfolio.insights['total_forks'],
             score=round(portfolio.expertise_metrics['overall_score'], 1),
+            current_repos=current_repos,
+            recent_repos=recent_repos,
+            past_repos=past_repos,
             highlights=top_5,
-            other_repos=other_repos,
-            other_count=len(other_repos),
             languages=portfolio.insights['languages']
         )
     
