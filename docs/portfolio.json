@@ -1,7 +1,36 @@
 {
   "total_repositories": 30,
-  "generation_date": "2025-10-02T08:20:39.694332",
+  "generation_date": "2025-10-02T08:35:56.489503",
   "repositories": [
+    {
+      "name": "NLP-Spacy-Transformers",
+      "full_name": "sednabcn/NLP-Spacy-Transformers",
+      "description": "Tutorial and Applications of Spacy and Transformers to Natural Language Processing",
+      "url": "https://github.com/sednabcn/NLP-Spacy-Transformers",
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "topics": [],
+      "created_at": "2024-04-06T15:27:52Z",
+      "updated_at": "2025-02-21T15:41:15Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [
+          "transformers"
+        ],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 6.5
+    },
     {
       "name": "SiMLeng-Portfolio",
       "full_name": "sednabcn/SiMLeng-Portfolio",
@@ -20,7 +49,7 @@
         "technology"
       ],
       "created_at": "2018-11-14T14:30:30Z",
-      "updated_at": "2025-10-02T08:20:25Z",
+      "updated_at": "2025-10-02T08:35:45Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -38,6 +67,180 @@
       "ai_ml_relevance_score": 5.0
     },
     {
+      "name": "Python-ML-Trade-Finance",
+      "full_name": "sednabcn/Python-ML-Trade-Finance",
+      "description": "Using Machine Learning Models to Trade Finance",
+      "url": "https://github.com/sednabcn/Python-ML-Trade-Finance",
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "topics": [],
+      "created_at": "2021-03-07T20:36:33Z",
+      "updated_at": "2025-02-21T17:00:16Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 3.5
+    },
+    {
+      "name": "simleng_ai",
+      "full_name": "sednabcn/simleng_ai",
+      "description": "A Python library to develop strategies on Predictive modelling",
+      "url": "https://github.com/sednabcn/simleng_ai",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "topics": [],
+      "created_at": "2023-08-18T22:44:44Z",
+      "updated_at": "2024-06-07T21:21:25Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 3.5
+    },
+    {
+      "name": "Python-Sequences-Time-Series-and-Prediction",
+      "full_name": "sednabcn/Python-Sequences-Time-Series-and-Prediction",
+      "description": "This repository describes the tools learned and develop during a Coursera Course related to Time Series Analysis with Pithon",
+      "url": "https://github.com/sednabcn/Python-Sequences-Time-Series-and-Prediction",
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "topics": [],
+      "created_at": "2020-12-17T17:38:48Z",
+      "updated_at": "2020-12-17T17:57:09Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 3.5
+    },
+    {
+      "name": "Python-Coursera-AI-DEEP-LEARNING",
+      "full_name": "sednabcn/Python-Coursera-AI-DEEP-LEARNING",
+      "description": "This repository contains the exercises and projects related to DEEP LEARNING along the Coursera Course entitled :",
+      "url": "https://github.com/sednabcn/Python-Coursera-AI-DEEP-LEARNING",
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "topics": [],
+      "created_at": "2019-07-21T08:12:07Z",
+      "updated_at": "2020-04-05T19:47:17Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 3.5
+    },
+    {
+      "name": "Python-ML-Sample-Collocation",
+      "full_name": "sednabcn/Python-ML-Sample-Collocation",
+      "description": "This repository describes the application of numerical Collocation method in Machine Learning as a Supervised learning algorithm",
+      "url": "https://github.com/sednabcn/Python-ML-Sample-Collocation",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "topics": [
+        "collocation-method",
+        "python",
+        "rbf-classifier",
+        "rbf-regression"
+      ],
+      "created_at": "2019-07-08T11:07:12Z",
+      "updated_at": "2019-07-08T11:39:26Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 3.5
+    },
+    {
+      "name": "Python-DataScience-Coursera",
+      "full_name": "sednabcn/Python-DataScience-Coursera",
+      "description": "This project is related to the course Python for Data Science managed by Coursera",
+      "url": "https://github.com/sednabcn/Python-DataScience-Coursera",
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "topics": [
+        "jupyter-notebook",
+        "matplotlib",
+        "pandas-dataframe",
+        "python3"
+      ],
+      "created_at": "2019-07-07T12:54:52Z",
+      "updated_at": "2019-07-08T09:05:46Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": [
+          "pandas"
+        ]
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 3.5
+    },
+    {
       "name": "stem-ai-tutoring",
       "full_name": "sednabcn/stem-ai-tutoring",
       "description": "Welcome to stem-ai-tutoring, a curated ecosystem by Dr. Ruperto Pedro Bonet Chaple, designed to showcase my professional expertise and project work in:  AI & LLMs for scientific applications Mathematical tutoring and education Simulation & domain modeling Applied research and consulting",
@@ -47,7 +250,7 @@
       "language": "JavaScript",
       "topics": [],
       "created_at": "2024-07-27T09:13:42Z",
-      "updated_at": "2025-10-02T07:18:32Z",
+      "updated_at": "2025-10-02T08:26:48Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -150,33 +353,6 @@
       "ai_ml_relevance_score": 2.5
     },
     {
-      "name": "Python-ML-Trade-Finance",
-      "full_name": "sednabcn/Python-ML-Trade-Finance",
-      "description": "Using Machine Learning Models to Trade Finance",
-      "url": "https://github.com/sednabcn/Python-ML-Trade-Finance",
-      "stars": 0,
-      "forks": 0,
-      "language": "Jupyter Notebook",
-      "topics": [],
-      "created_at": "2021-03-07T20:36:33Z",
-      "updated_at": "2025-02-21T17:00:16Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 3.5
-    },
-    {
       "name": "Python-Reinforcement-Learning",
       "full_name": "sednabcn/Python-Reinforcement-Learning",
       "description": "This repository contains ",
@@ -204,35 +380,6 @@
       "ai_ml_relevance_score": 2.5
     },
     {
-      "name": "NLP-Spacy-Transformers",
-      "full_name": "sednabcn/NLP-Spacy-Transformers",
-      "description": "Tutorial and Applications of Spacy and Transformers to Natural Language Processing",
-      "url": "https://github.com/sednabcn/NLP-Spacy-Transformers",
-      "stars": 0,
-      "forks": 0,
-      "language": "Jupyter Notebook",
-      "topics": [],
-      "created_at": "2024-04-06T15:27:52Z",
-      "updated_at": "2025-02-21T15:41:15Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [
-          "transformers"
-        ],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 6.5
-    },
-    {
       "name": "QuantFinanceModels",
       "full_name": "sednabcn/QuantFinanceModels",
       "description": "# QuantFinanceModels  A comprehensive repository for Quant Developers focused on finance models. This includes risk management, portfolio management, trading strategies, model validation, tutorials, practice projects, media, and blog posts.  Explore, learn, and contribute to the world of quantitative finance.",
@@ -258,95 +405,6 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 2.5
-    },
-    {
-      "name": "simleng_ai",
-      "full_name": "sednabcn/simleng_ai",
-      "description": "A Python library to develop strategies on Predictive modelling",
-      "url": "https://github.com/sednabcn/simleng_ai",
-      "stars": 0,
-      "forks": 0,
-      "language": "Python",
-      "topics": [],
-      "created_at": "2023-08-18T22:44:44Z",
-      "updated_at": "2024-06-07T21:21:25Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 3.5
-    },
-    {
-      "name": "DATA_SCIENCE_INTERVIEWS",
-      "full_name": "sednabcn/DATA_SCIENCE_INTERVIEWS",
-      "description": "This repository contains the test and preparation for Data Science Interviews",
-      "url": "https://github.com/sednabcn/DATA_SCIENCE_INTERVIEWS",
-      "stars": 0,
-      "forks": 0,
-      "language": "Jupyter Notebook",
-      "topics": [],
-      "created_at": "2024-03-15T20:17:46Z",
-      "updated_at": "2024-03-16T14:38:37Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 2.0
-    },
-    {
-      "name": "Python-NLTK",
-      "full_name": "sednabcn/Python-NLTK",
-      "description": "This repository describes NLTK methodology applied to Machine Learning",
-      "url": "https://github.com/sednabcn/Python-NLTK",
-      "stars": 0,
-      "forks": 0,
-      "language": "Jupyter Notebook",
-      "topics": [
-        "attention-mechanism",
-        "chatbot",
-        "nltk-data",
-        "nltk-library",
-        "nltk-python",
-        "python",
-        "seq2seq-model"
-      ],
-      "created_at": "2019-07-09T14:57:32Z",
-      "updated_at": "2024-03-09T17:03:35Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 2.0
     },
     {
       "name": "Python-Package-Explained",
@@ -423,33 +481,6 @@
       "ai_ml_relevance_score": 2.5
     },
     {
-      "name": "Python-Sequences-Time-Series-and-Prediction",
-      "full_name": "sednabcn/Python-Sequences-Time-Series-and-Prediction",
-      "description": "This repository describes the tools learned and develop during a Coursera Course related to Time Series Analysis with Pithon",
-      "url": "https://github.com/sednabcn/Python-Sequences-Time-Series-and-Prediction",
-      "stars": 0,
-      "forks": 0,
-      "language": "Jupyter Notebook",
-      "topics": [],
-      "created_at": "2020-12-17T17:38:48Z",
-      "updated_at": "2020-12-17T17:57:09Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 3.5
-    },
-    {
       "name": "Practical-Time-Series-with-R",
       "full_name": "sednabcn/Practical-Time-Series-with-R",
       "description": null,
@@ -475,33 +506,6 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 2.5
-    },
-    {
-      "name": "Python-Coursera-AI-DEEP-LEARNING",
-      "full_name": "sednabcn/Python-Coursera-AI-DEEP-LEARNING",
-      "description": "This repository contains the exercises and projects related to DEEP LEARNING along the Coursera Course entitled :",
-      "url": "https://github.com/sednabcn/Python-Coursera-AI-DEEP-LEARNING",
-      "stars": 0,
-      "forks": 0,
-      "language": "Jupyter Notebook",
-      "topics": [],
-      "created_at": "2019-07-21T08:12:07Z",
-      "updated_at": "2020-04-05T19:47:17Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 3.5
     },
     {
       "name": "Python-JAVA-HADOOP",
@@ -537,21 +541,16 @@
       "ai_ml_relevance_score": 2.5
     },
     {
-      "name": "Python-ML-Sample-Collocation",
-      "full_name": "sednabcn/Python-ML-Sample-Collocation",
-      "description": "This repository describes the application of numerical Collocation method in Machine Learning as a Supervised learning algorithm",
-      "url": "https://github.com/sednabcn/Python-ML-Sample-Collocation",
+      "name": "DATA_SCIENCE_INTERVIEWS",
+      "full_name": "sednabcn/DATA_SCIENCE_INTERVIEWS",
+      "description": "This repository contains the test and preparation for Data Science Interviews",
+      "url": "https://github.com/sednabcn/DATA_SCIENCE_INTERVIEWS",
       "stars": 0,
       "forks": 0,
-      "language": "Python",
-      "topics": [
-        "collocation-method",
-        "python",
-        "rbf-classifier",
-        "rbf-regression"
-      ],
-      "created_at": "2019-07-08T11:07:12Z",
-      "updated_at": "2019-07-08T11:39:26Z",
+      "language": "Jupyter Notebook",
+      "topics": [],
+      "created_at": "2024-03-15T20:17:46Z",
+      "updated_at": "2024-03-16T14:38:37Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -566,7 +565,42 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 3.5
+      "ai_ml_relevance_score": 2.0
+    },
+    {
+      "name": "Python-NLTK",
+      "full_name": "sednabcn/Python-NLTK",
+      "description": "This repository describes NLTK methodology applied to Machine Learning",
+      "url": "https://github.com/sednabcn/Python-NLTK",
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "topics": [
+        "attention-mechanism",
+        "chatbot",
+        "nltk-data",
+        "nltk-library",
+        "nltk-python",
+        "python",
+        "seq2seq-model"
+      ],
+      "created_at": "2019-07-09T14:57:32Z",
+      "updated_at": "2024-03-09T17:03:35Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 2.0
     },
     {
       "name": "Python-Genlogistic",
@@ -596,27 +630,20 @@
       "ai_ml_relevance_score": 2.0
     },
     {
-      "name": "Python-DataScience-Coursera",
-      "full_name": "sednabcn/Python-DataScience-Coursera",
-      "description": "This project is related to the course Python for Data Science managed by Coursera",
-      "url": "https://github.com/sednabcn/Python-DataScience-Coursera",
+      "name": "AI-ML-SIMULATION",
+      "full_name": "sednabcn/AI-ML-SIMULATION",
+      "description": null,
+      "url": "https://github.com/sednabcn/AI-ML-SIMULATION",
       "stars": 0,
       "forks": 0,
-      "language": "Jupyter Notebook",
-      "topics": [
-        "jupyter-notebook",
-        "matplotlib",
-        "pandas-dataframe",
-        "python3"
-      ],
-      "created_at": "2019-07-07T12:54:52Z",
-      "updated_at": "2019-07-08T09:05:46Z",
+      "language": "Rich Text Format",
+      "topics": [],
+      "created_at": "2022-02-05T14:07:01Z",
+      "updated_at": "2025-05-23T21:00:45Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
-        "data_frameworks": [
-          "pandas"
-        ]
+        "data_frameworks": []
       },
       "code_analysis": {
         "file_statistics": {
@@ -627,28 +654,269 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 3.5
+      "ai_ml_relevance_score": 1.5
+    },
+    {
+      "name": "MATHS-STATISTICS-TEACHING",
+      "full_name": "sednabcn/MATHS-STATISTICS-TEACHING",
+      "description": "This repository contains my protfolio of teaching Mathematics & Statistics in Engineering, Social and Natural Sciences",
+      "url": "https://github.com/sednabcn/MATHS-STATISTICS-TEACHING",
+      "stars": 0,
+      "forks": 0,
+      "language": null,
+      "topics": [],
+      "created_at": "2022-02-18T19:49:54Z",
+      "updated_at": "2025-05-23T19:40:48Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.5
+    },
+    {
+      "name": "ai-llm-blog",
+      "full_name": "sednabcn/ai-llm-blog",
+      "description": null,
+      "url": "https://github.com/sednabcn/ai-llm-blog",
+      "stars": 0,
+      "forks": 0,
+      "language": "JavaScript",
+      "topics": [],
+      "created_at": "2025-03-17T17:53:10Z",
+      "updated_at": "2025-05-16T21:59:36Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.5
+    },
+    {
+      "name": "CodeMastery-Python-Cpp-R-SQL",
+      "full_name": "sednabcn/CodeMastery-Python-Cpp-R-SQL",
+      "description": "Welcome to the Programming Language Training project! This repository is designed to provide training and practice for four major programming languages: Python, C++, R, and SQL. ",
+      "url": "https://github.com/sednabcn/CodeMastery-Python-Cpp-R-SQL",
+      "stars": 0,
+      "forks": 0,
+      "language": "HTML",
+      "topics": [],
+      "created_at": "2024-07-22T15:04:53Z",
+      "updated_at": "2025-09-30T18:16:22Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0
+    },
+    {
+      "name": "AQU-Portfolio",
+      "full_name": "sednabcn/AQU-Portfolio",
+      "description": "Coastal Modeller  Water Waves Simulation Papers",
+      "url": "https://github.com/sednabcn/AQU-Portfolio",
+      "stars": 0,
+      "forks": 0,
+      "language": null,
+      "topics": [
+        "c",
+        "cluster-computing",
+        "computational-fluid-dynamics",
+        "coreldraw",
+        "cplusplus-11",
+        "fortran90",
+        "fortran95",
+        "fortran97",
+        "latex",
+        "maple",
+        "mathematica",
+        "mathematical-modelling",
+        "mathematical-programming",
+        "matlab",
+        "mpi",
+        "mpi-applications",
+        "octave",
+        "parallel-programming",
+        "simualtion",
+        "tgif"
+      ],
+      "created_at": "2018-06-12T13:33:18Z",
+      "updated_at": "2025-05-23T18:37:51Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0
+    },
+    {
+      "name": "Tourism-Enhancer-Index-by-Neighbourhoods-in-London",
+      "full_name": "sednabcn/Tourism-Enhancer-Index-by-Neighbourhoods-in-London",
+      "description": "Tourism-Enhancer-Index-by-Neighbourhoods-in-London",
+      "url": "https://github.com/sednabcn/Tourism-Enhancer-Index-by-Neighbourhoods-in-London",
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "topics": [],
+      "created_at": "2020-03-21T17:49:54Z",
+      "updated_at": "2025-05-12T17:13:40Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0
+    },
+    {
+      "name": "Python-IMAGE-PROCESSING",
+      "full_name": "sednabcn/Python-IMAGE-PROCESSING",
+      "description": "This repository collect all works developed related to Maachine Learning and Image Processing",
+      "url": "https://github.com/sednabcn/Python-IMAGE-PROCESSING",
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "topics": [],
+      "created_at": "2020-06-05T15:51:39Z",
+      "updated_at": "2025-02-21T15:25:08Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0
+    },
+    {
+      "name": "Tableau-Power_BI-Experiments",
+      "full_name": "sednabcn/Tableau-Power_BI-Experiments",
+      "description": "This repository collects the training on visualisation using Tableau and Power BI bussiness inteligent softwares ",
+      "url": "https://github.com/sednabcn/Tableau-Power_BI-Experiments",
+      "stars": 0,
+      "forks": 0,
+      "language": null,
+      "topics": [],
+      "created_at": "2024-01-10T17:08:11Z",
+      "updated_at": "2024-01-10T17:08:12Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0
+    },
+    {
+      "name": "Python-Capstone",
+      "full_name": "sednabcn/Python-Capstone",
+      "description": "This repository contains the data and tools to study the Capstone Dataset",
+      "url": "https://github.com/sednabcn/Python-Capstone",
+      "stars": 0,
+      "forks": 0,
+      "language": "HTML",
+      "topics": [],
+      "created_at": "2019-09-15T09:09:21Z",
+      "updated_at": "2020-03-20T22:08:32Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0
     }
   ],
   "insights": {
     "total_stars": 2,
     "total_forks": 2,
     "languages": {
+      "Jupyter Notebook": {
+        "count": 13,
+        "percentage": 43.333333333333336
+      },
       "Python": {
         "count": 6,
-        "percentage": 28.57142857142857
+        "percentage": 20.0
       },
       "JavaScript": {
-        "count": 1,
-        "percentage": 4.761904761904762
+        "count": 2,
+        "percentage": 6.666666666666667
       },
       "HTML": {
-        "count": 2,
-        "percentage": 9.523809523809524
+        "count": 4,
+        "percentage": 13.333333333333334
       },
-      "Jupyter Notebook": {
-        "count": 11,
-        "percentage": 52.38095238095239
+      "Rich Text Format": {
+        "count": 1,
+        "percentage": 3.3333333333333335
       }
     },
     "frameworks_summary": {},
@@ -657,21 +925,25 @@
   "categories": {},
   "skills": {
     "programming_languages": {
+      "Jupyter Notebook": {
+        "count": 13,
+        "percentage": 43.333333333333336
+      },
       "Python": {
         "count": 6,
-        "percentage": 28.57142857142857
+        "percentage": 20.0
       },
       "JavaScript": {
-        "count": 1,
-        "percentage": 4.761904761904762
+        "count": 2,
+        "percentage": 6.666666666666667
       },
       "HTML": {
-        "count": 2,
-        "percentage": 9.523809523809524
+        "count": 4,
+        "percentage": 13.333333333333334
       },
-      "Jupyter Notebook": {
-        "count": 11,
-        "percentage": 52.38095238095239
+      "Rich Text Format": {
+        "count": 1,
+        "percentage": 3.3333333333333335
       }
     },
     "ml_frameworks": {},
@@ -679,29 +951,14 @@
   },
   "highlights": [
     {
-      "name": "Python-ML-Algorithms",
-      "full_name": "sednabcn/Python-ML-Algorithms",
-      "description": "This repository describes the training in Supervised and/or Unsupervised Machine Learning algorithms. Here appears codes belong to several authors. The algorithms presented include   ",
-      "url": "https://github.com/sednabcn/Python-ML-Algorithms",
-      "stars": 1,
+      "name": "NLP-Spacy-Transformers",
+      "full_name": "sednabcn/NLP-Spacy-Transformers",
+      "description": "Tutorial and Applications of Spacy and Transformers to Natural Language Processing",
+      "url": "https://github.com/sednabcn/NLP-Spacy-Transformers",
+      "stars": 0,
       "forks": 0,
-      "relevance_score": 2.5,
-      "key_frameworks": [],
-      "topics": [
-        "decision-trees",
-        "supervised-learning-algorithms",
-        "unsupervised-learning-algorithms"
-      ],
-      "highlights": []
-    },
-    {
-      "name": "Generative_AI",
-      "full_name": "sednabcn/Generative_AI",
-      "description": "This repository show the state of art in Generative AI and the AI driven applications using LLMs ",
-      "url": "https://github.com/sednabcn/Generative_AI",
-      "stars": 1,
-      "forks": 1,
-      "relevance_score": 2.5,
+      "language": "Jupyter Notebook",
+      "relevance_score": 6.5,
       "key_frameworks": [],
       "topics": [],
       "highlights": []
@@ -713,35 +970,53 @@
       "url": "https://github.com/sednabcn/SiMLeng-Portfolio",
       "stars": 0,
       "forks": 0,
+      "language": "Python",
       "relevance_score": 5.0,
       "key_frameworks": [],
       "topics": [
         "artificial-intelligence",
         "computingscience",
-        "educational-project"
+        "educational-project",
+        "it",
+        "simulation"
       ],
       "highlights": []
     },
     {
-      "name": "stem-ai-tutoring",
-      "full_name": "sednabcn/stem-ai-tutoring",
-      "description": "Welcome to stem-ai-tutoring, a curated ecosystem by Dr. Ruperto Pedro Bonet Chaple, designed to showcase my professional expertise and project work in:  AI & LLMs for scientific applications Mathematical tutoring and education Simulation & domain modeling Applied research and consulting",
-      "url": "https://github.com/sednabcn/stem-ai-tutoring",
+      "name": "Python-ML-Trade-Finance",
+      "full_name": "sednabcn/Python-ML-Trade-Finance",
+      "description": "Using Machine Learning Models to Trade Finance",
+      "url": "https://github.com/sednabcn/Python-ML-Trade-Finance",
       "stars": 0,
-      "forks": 1,
-      "relevance_score": 2.5,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "relevance_score": 3.5,
       "key_frameworks": [],
       "topics": [],
       "highlights": []
     },
     {
-      "name": "customer_satisfaction_ai",
-      "full_name": "sednabcn/customer_satisfaction_ai",
-      "description": "This repository is dedicated to evaluate customer_satisfaction strategies using AI",
-      "url": "https://github.com/sednabcn/customer_satisfaction_ai",
+      "name": "simleng_ai",
+      "full_name": "sednabcn/simleng_ai",
+      "description": "A Python library to develop strategies on Predictive modelling",
+      "url": "https://github.com/sednabcn/simleng_ai",
       "stars": 0,
       "forks": 0,
-      "relevance_score": 2.5,
+      "language": "Python",
+      "relevance_score": 3.5,
+      "key_frameworks": [],
+      "topics": [],
+      "highlights": []
+    },
+    {
+      "name": "Python-Sequences-Time-Series-and-Prediction",
+      "full_name": "sednabcn/Python-Sequences-Time-Series-and-Prediction",
+      "description": "This repository describes the tools learned and develop during a Coursera Course related to Time Series Analysis with Pithon",
+      "url": "https://github.com/sednabcn/Python-Sequences-Time-Series-and-Prediction",
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "relevance_score": 3.5,
       "key_frameworks": [],
       "topics": [],
       "highlights": []
@@ -754,6 +1029,6 @@
     "software_engineering": 5.0,
     "research_ability": 4.0,
     "collaboration": 3.0,
-    "overall_score": 5.0
+    "overall_score": 2.466666666666667
   }
 }

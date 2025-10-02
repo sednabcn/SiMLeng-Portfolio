@@ -1,114 +1,905 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AI/ML Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI/ML Portfolio Report</title>
     <style>
-        body { font-family: Arial; margin: 20px; background: #f5f5f5; }
-        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }
-        h1 { color: #2c3e50; text-align: center; }
-        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }
-        .stat { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 10px; text-align: center; }
-        .stat-value { font-size: 2em; font-weight: bold; }
-        .highlight { background: #f8f9fa; border: 1px solid #ddd; padding: 20px; margin: 15px 0; border-radius: 8px; }
-        .tag { background: #3498db; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; margin-right: 5px; display: inline-block; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .generated-date {
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .project-grid {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .project-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .project-card h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .project-card h3 a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .project-card h3 a:hover {
+            text-decoration: underline;
+        }
+        
+        .project-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        
+        .badge-stars {
+            background: #ffd700;
+            color: #333;
+        }
+        
+        .badge-forks {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .badge-score {
+            background: #667eea;
+            color: white;
+        }
+        
+        .badge-language {
+            background: #e0e0e0;
+            color: #333;
+        }
+        
+        .topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .topic-tag {
+            background: #f0f0f0;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            color: #555;
+        }
+        
+        .expandable {
+            margin-bottom: 30px;
+        }
+        
+        .expand-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .expand-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .expand-button:active {
+            transform: scale(0.98);
+        }
+        
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .expandable-content.expanded {
+            max-height: 20000px;
+        }
+        
+        .languages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .language-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .language-name {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .language-stats {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>AI/ML Portfolio Report</h1>
-        <p style="text-align: center; color: #7f8c8d;">Generated: 2025-10-02</p>
+        <header>
+            <h1>🤖 AI/ML Portfolio Report</h1>
+            <p class="generated-date">Generated: 2025-10-02</p>
+        </header>
         
         <div class="stats">
-            <div class="stat">
-                <div class="stat-value">30</div>
-                <div>Repositories</div>
+            <div class="stat-card" onclick="scrollToProjects()">
+                <span class="stat-number">30</span>
+                <span class="stat-label">Repositories</span>
             </div>
-            <div class="stat">
-                <div class="stat-value">2</div>
-                <div>GitHub Stars</div>
+            <div class="stat-card">
+                <span class="stat-number">2</span>
+                <span class="stat-label">GitHub Stars</span>
             </div>
-            <div class="stat">
-                <div class="stat-value">2</div>
-                <div>Forks</div>
+            <div class="stat-card">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Forks</span>
             </div>
-            <div class="stat">
-                <div class="stat-value">5.0</div>
-                <div>Score</div>
-            </div>
-        </div>
-        
-        <h2>Top Projects</h2>
-        
-        <div class="highlight">
-            <h3><a href="https://github.com/sednabcn/Python-ML-Algorithms">Python-ML-Algorithms</a></h3>
-            <p>This repository describes the training in Supervised and/or Unsupervised Machine Learning algorithms. Here appears codes belong to several authors. The algorithms presented include   </p>
-            <div>
-                <span class="tag">⭐ 1</span>
-                <span class="tag">🍴 0</span>
-                <span class="tag">Score: 2.5/10</span>
+            <div class="stat-card">
+                <span class="stat-number">2.5</span>
+                <span class="stat-label">Score</span>
             </div>
         </div>
         
-        <div class="highlight">
-            <h3><a href="https://github.com/sednabcn/Generative_AI">Generative_AI</a></h3>
-            <p>This repository show the state of art in Generative AI and the AI driven applications using LLMs </p>
-            <div>
-                <span class="tag">⭐ 1</span>
-                <span class="tag">🍴 1</span>
-                <span class="tag">Score: 2.5/10</span>
+        <div class="content" id="projects">
+            <h2>🏆 Top Projects</h2>
+            <div class="project-grid">
+                
+                <div class="project-card">
+                    <h3><a href="https://github.com/sednabcn/NLP-Spacy-Transformers" target="_blank">NLP-Spacy-Transformers</a></h3>
+                    <p class="project-description">Tutorial and Applications of Spacy and Transformers to Natural Language Processing</p>
+                    <div class="project-meta">
+                        <span class="badge badge-stars">⭐ 0</span>
+                        <span class="badge badge-forks">🔱 0</span>
+                        <span class="badge badge-score">Score: 6.5/10</span>
+                        
+                        <span class="badge badge-language">Jupyter Notebook</span>
+                        
+                    </div>
+                    
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="https://github.com/sednabcn/SiMLeng-Portfolio" target="_blank">SiMLeng-Portfolio</a></h3>
+                    <p class="project-description">Simulation Modelling AI Technologies Projects Consulting </p>
+                    <div class="project-meta">
+                        <span class="badge badge-stars">⭐ 0</span>
+                        <span class="badge badge-forks">🔱 0</span>
+                        <span class="badge badge-score">Score: 5.0/10</span>
+                        
+                        <span class="badge badge-language">Python</span>
+                        
+                    </div>
+                    
+                    <div class="topics">
+                        
+                        <span class="topic-tag">artificial-intelligence</span>
+                        
+                        <span class="topic-tag">computingscience</span>
+                        
+                        <span class="topic-tag">educational-project</span>
+                        
+                        <span class="topic-tag">it</span>
+                        
+                        <span class="topic-tag">simulation</span>
+                        
+                    </div>
+                    
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="https://github.com/sednabcn/Python-ML-Trade-Finance" target="_blank">Python-ML-Trade-Finance</a></h3>
+                    <p class="project-description">Using Machine Learning Models to Trade Finance</p>
+                    <div class="project-meta">
+                        <span class="badge badge-stars">⭐ 0</span>
+                        <span class="badge badge-forks">🔱 0</span>
+                        <span class="badge badge-score">Score: 3.5/10</span>
+                        
+                        <span class="badge badge-language">Jupyter Notebook</span>
+                        
+                    </div>
+                    
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="https://github.com/sednabcn/simleng_ai" target="_blank">simleng_ai</a></h3>
+                    <p class="project-description">A Python library to develop strategies on Predictive modelling</p>
+                    <div class="project-meta">
+                        <span class="badge badge-stars">⭐ 0</span>
+                        <span class="badge badge-forks">🔱 0</span>
+                        <span class="badge badge-score">Score: 3.5/10</span>
+                        
+                        <span class="badge badge-language">Python</span>
+                        
+                    </div>
+                    
+                </div>
+                
+                <div class="project-card">
+                    <h3><a href="https://github.com/sednabcn/Python-Sequences-Time-Series-and-Prediction" target="_blank">Python-Sequences-Time-Series-and-Prediction</a></h3>
+                    <p class="project-description">This repository describes the tools learned and develop during a Coursera Course related to Time Series Analysis with Pithon</p>
+                    <div class="project-meta">
+                        <span class="badge badge-stars">⭐ 0</span>
+                        <span class="badge badge-forks">🔱 0</span>
+                        <span class="badge badge-score">Score: 3.5/10</span>
+                        
+                        <span class="badge badge-language">Jupyter Notebook</span>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            
+            <div class="expandable">
+                <button class="expand-button" onclick="toggleExpand()" id="expandBtn">
+                    📁 Show All 25 More Projects
+                </button>
+                <div class="expandable-content" id="allProjects">
+                    <div class="project-grid" style="margin-top: 20px;">
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Python-Coursera-AI-DEEP-LEARNING" target="_blank">Python-Coursera-AI-DEEP-LEARNING</a></h3>
+                            <p class="project-description">This repository contains the exercises and projects related to DEEP LEARNING along the Coursera Course entitled :</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 3.5/10</span>
+                                
+                                <span class="badge badge-language">Jupyter Notebook</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Python-ML-Sample-Collocation" target="_blank">Python-ML-Sample-Collocation</a></h3>
+                            <p class="project-description">This repository describes the application of numerical Collocation method in Machine Learning as a Supervised learning algorithm</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 3.5/10</span>
+                                
+                                <span class="badge badge-language">Python</span>
+                                
+                            </div>
+                            
+                            <div class="topics">
+                                
+                                <span class="topic-tag">collocation-method</span>
+                                
+                                <span class="topic-tag">python</span>
+                                
+                                <span class="topic-tag">rbf-classifier</span>
+                                
+                                <span class="topic-tag">rbf-regression</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Python-DataScience-Coursera" target="_blank">Python-DataScience-Coursera</a></h3>
+                            <p class="project-description">This project is related to the course Python for Data Science managed by Coursera</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 3.5/10</span>
+                                
+                                <span class="badge badge-language">Jupyter Notebook</span>
+                                
+                            </div>
+                            
+                            <div class="topics">
+                                
+                                <span class="topic-tag">jupyter-notebook</span>
+                                
+                                <span class="topic-tag">matplotlib</span>
+                                
+                                <span class="topic-tag">pandas-dataframe</span>
+                                
+                                <span class="topic-tag">python3</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/stem-ai-tutoring" target="_blank">stem-ai-tutoring</a></h3>
+                            <p class="project-description">Welcome to stem-ai-tutoring, a curated ecosystem by Dr. Ruperto Pedro Bonet Chaple, designed to showcase my professional expertise and project work in:  AI & LLMs for scientific applications Mathematical tutoring and education Simulation & domain modeling Applied research and consulting</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 1</span>
+                                <span class="badge badge-score">Score: 2.5/10</span>
+                                
+                                <span class="badge badge-language">JavaScript</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Python-ML-Algorithms" target="_blank">Python-ML-Algorithms</a></h3>
+                            <p class="project-description">This repository describes the training in Supervised and/or Unsupervised Machine Learning algorithms. Here appears codes belong to several authors. The algorithms presented include   </p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 1</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 2.5/10</span>
+                                
+                                <span class="badge badge-language">HTML</span>
+                                
+                            </div>
+                            
+                            <div class="topics">
+                                
+                                <span class="topic-tag">decision-trees</span>
+                                
+                                <span class="topic-tag">supervised-learning-algorithms</span>
+                                
+                                <span class="topic-tag">unsupervised-learning-algorithms</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Generative_AI" target="_blank">Generative_AI</a></h3>
+                            <p class="project-description">This repository show the state of art in Generative AI and the AI driven applications using LLMs </p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 1</span>
+                                <span class="badge badge-forks">🔱 1</span>
+                                <span class="badge badge-score">Score: 2.5/10</span>
+                                
+                                <span class="badge badge-language">Python</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/customer_satisfaction_ai" target="_blank">customer_satisfaction_ai</a></h3>
+                            <p class="project-description">This repository is dedicated to evaluate customer_satisfaction strategies using AI</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 2.5/10</span>
+                                
+                                <span class="badge badge-language">Jupyter Notebook</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Python-Reinforcement-Learning" target="_blank">Python-Reinforcement-Learning</a></h3>
+                            <p class="project-description">This repository contains </p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 2.5/10</span>
+                                
+                                <span class="badge badge-language">Jupyter Notebook</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/QuantFinanceModels" target="_blank">QuantFinanceModels</a></h3>
+                            <p class="project-description"># QuantFinanceModels  A comprehensive repository for Quant Developers focused on finance models. This includes risk management, portfolio management, trading strategies, model validation, tutorials, practice projects, media, and blog posts.  Explore, learn, and contribute to the world of quantitative finance.</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 2.5/10</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Python-Package-Explained" target="_blank">Python-Package-Explained</a></h3>
+                            <p class="project-description">This repository describes the methodology to build a minimal python package</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 2.5/10</span>
+                                
+                                <span class="badge badge-language">Python</span>
+                                
+                            </div>
+                            
+                            <div class="topics">
+                                
+                                <span class="topic-tag">class</span>
+                                
+                                <span class="topic-tag">command-line-tool</span>
+                                
+                                <span class="topic-tag">module</span>
+                                
+                                <span class="topic-tag">package</span>
+                                
+                                <span class="topic-tag">python3</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Python-ML-Statsmodels" target="_blank">Python-ML-Statsmodels</a></h3>
+                            <p class="project-description">This repository describes the implementation of Machine Learning techinques using the Statsmodels pacakge</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 2.5/10</span>
+                                
+                                <span class="badge badge-language">HTML</span>
+                                
+                            </div>
+                            
+                            <div class="topics">
+                                
+                                <span class="topic-tag">classification-algorithm</span>
+                                
+                                <span class="topic-tag">classification-model</span>
+                                
+                                <span class="topic-tag">classifier-training</span>
+                                
+                                <span class="topic-tag">genlogistic</span>
+                                
+                                <span class="topic-tag">logistic-regression</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Practical-Time-Series-with-R" target="_blank">Practical-Time-Series-with-R</a></h3>
+                            <p class="project-description">No description available</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 2.5/10</span>
+                                
+                                <span class="badge badge-language">Jupyter Notebook</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Python-JAVA-HADOOP" target="_blank">Python-JAVA-HADOOP</a></h3>
+                            <p class="project-description">This repsoitory describes the implementation of technologies to BIG DATA </p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 2.5/10</span>
+                                
+                                <span class="badge badge-language">Jupyter Notebook</span>
+                                
+                            </div>
+                            
+                            <div class="topics">
+                                
+                                <span class="topic-tag">hadoop</span>
+                                
+                                <span class="topic-tag">hadoop-hdfs</span>
+                                
+                                <span class="topic-tag">hadoop-mapreduce</span>
+                                
+                                <span class="topic-tag">scala</span>
+                                
+                                <span class="topic-tag">spark</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/DATA_SCIENCE_INTERVIEWS" target="_blank">DATA_SCIENCE_INTERVIEWS</a></h3>
+                            <p class="project-description">This repository contains the test and preparation for Data Science Interviews</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 2.0/10</span>
+                                
+                                <span class="badge badge-language">Jupyter Notebook</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Python-NLTK" target="_blank">Python-NLTK</a></h3>
+                            <p class="project-description">This repository describes NLTK methodology applied to Machine Learning</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 2.0/10</span>
+                                
+                                <span class="badge badge-language">Jupyter Notebook</span>
+                                
+                            </div>
+                            
+                            <div class="topics">
+                                
+                                <span class="topic-tag">attention-mechanism</span>
+                                
+                                <span class="topic-tag">chatbot</span>
+                                
+                                <span class="topic-tag">nltk-data</span>
+                                
+                                <span class="topic-tag">nltk-library</span>
+                                
+                                <span class="topic-tag">nltk-python</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Python-Genlogistic" target="_blank">Python-Genlogistic</a></h3>
+                            <p class="project-description">This repository  discusses the aplication of Genlogistic models in Machine Learning</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 2.0/10</span>
+                                
+                                <span class="badge badge-language">Python</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/AI-ML-SIMULATION" target="_blank">AI-ML-SIMULATION</a></h3>
+                            <p class="project-description">No description available</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 1.5/10</span>
+                                
+                                <span class="badge badge-language">Rich Text Format</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/MATHS-STATISTICS-TEACHING" target="_blank">MATHS-STATISTICS-TEACHING</a></h3>
+                            <p class="project-description">This repository contains my protfolio of teaching Mathematics & Statistics in Engineering, Social and Natural Sciences</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 1.5/10</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/ai-llm-blog" target="_blank">ai-llm-blog</a></h3>
+                            <p class="project-description">No description available</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 1.5/10</span>
+                                
+                                <span class="badge badge-language">JavaScript</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/CodeMastery-Python-Cpp-R-SQL" target="_blank">CodeMastery-Python-Cpp-R-SQL</a></h3>
+                            <p class="project-description">Welcome to the Programming Language Training project! This repository is designed to provide training and practice for four major programming languages: Python, C++, R, and SQL. </p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 1.0/10</span>
+                                
+                                <span class="badge badge-language">HTML</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/AQU-Portfolio" target="_blank">AQU-Portfolio</a></h3>
+                            <p class="project-description">Coastal Modeller  Water Waves Simulation Papers</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 1.0/10</span>
+                                
+                            </div>
+                            
+                            <div class="topics">
+                                
+                                <span class="topic-tag">c</span>
+                                
+                                <span class="topic-tag">cluster-computing</span>
+                                
+                                <span class="topic-tag">computational-fluid-dynamics</span>
+                                
+                                <span class="topic-tag">coreldraw</span>
+                                
+                                <span class="topic-tag">cplusplus-11</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Tourism-Enhancer-Index-by-Neighbourhoods-in-London" target="_blank">Tourism-Enhancer-Index-by-Neighbourhoods-in-London</a></h3>
+                            <p class="project-description">Tourism-Enhancer-Index-by-Neighbourhoods-in-London</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 1.0/10</span>
+                                
+                                <span class="badge badge-language">Jupyter Notebook</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Python-IMAGE-PROCESSING" target="_blank">Python-IMAGE-PROCESSING</a></h3>
+                            <p class="project-description">This repository collect all works developed related to Maachine Learning and Image Processing</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 1.0/10</span>
+                                
+                                <span class="badge badge-language">Jupyter Notebook</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Tableau-Power_BI-Experiments" target="_blank">Tableau-Power_BI-Experiments</a></h3>
+                            <p class="project-description">This repository collects the training on visualisation using Tableau and Power BI bussiness inteligent softwares </p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 1.0/10</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3><a href="https://github.com/sednabcn/Python-Capstone" target="_blank">Python-Capstone</a></h3>
+                            <p class="project-description">This repository contains the data and tools to study the Capstone Dataset</p>
+                            <div class="project-meta">
+                                <span class="badge badge-stars">⭐ 0</span>
+                                <span class="badge badge-forks">🔱 0</span>
+                                <span class="badge badge-score">Score: 1.0/10</span>
+                                
+                                <span class="badge badge-language">HTML</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+            <h2>💻 Languages</h2>
+            <div class="languages">
+                
+                <div class="language-item">
+                    <div class="language-name">Jupyter Notebook</div>
+                    <div class="language-stats">13 projects (43.3%)</div>
+                </div>
+                
+                <div class="language-item">
+                    <div class="language-name">Python</div>
+                    <div class="language-stats">6 projects (20.0%)</div>
+                </div>
+                
+                <div class="language-item">
+                    <div class="language-name">JavaScript</div>
+                    <div class="language-stats">2 projects (6.7%)</div>
+                </div>
+                
+                <div class="language-item">
+                    <div class="language-name">HTML</div>
+                    <div class="language-stats">4 projects (13.3%)</div>
+                </div>
+                
+                <div class="language-item">
+                    <div class="language-name">Rich Text Format</div>
+                    <div class="language-stats">1 projects (3.3%)</div>
+                </div>
+                
             </div>
         </div>
         
-        <div class="highlight">
-            <h3><a href="https://github.com/sednabcn/SiMLeng-Portfolio">SiMLeng-Portfolio</a></h3>
-            <p>Simulation Modelling AI Technologies Projects Consulting </p>
-            <div>
-                <span class="tag">⭐ 0</span>
-                <span class="tag">🍴 0</span>
-                <span class="tag">Score: 5.0/10</span>
-            </div>
-        </div>
-        
-        <div class="highlight">
-            <h3><a href="https://github.com/sednabcn/stem-ai-tutoring">stem-ai-tutoring</a></h3>
-            <p>Welcome to stem-ai-tutoring, a curated ecosystem by Dr. Ruperto Pedro Bonet Chaple, designed to showcase my professional expertise and project work in:  AI & LLMs for scientific applications Mathematical tutoring and education Simulation & domain modeling Applied research and consulting</p>
-            <div>
-                <span class="tag">⭐ 0</span>
-                <span class="tag">🍴 1</span>
-                <span class="tag">Score: 2.5/10</span>
-            </div>
-        </div>
-        
-        <div class="highlight">
-            <h3><a href="https://github.com/sednabcn/customer_satisfaction_ai">customer_satisfaction_ai</a></h3>
-            <p>This repository is dedicated to evaluate customer_satisfaction strategies using AI</p>
-            <div>
-                <span class="tag">⭐ 0</span>
-                <span class="tag">🍴 0</span>
-                <span class="tag">Score: 2.5/10</span>
-            </div>
-        </div>
-        
-        
-        <h2>Languages</h2>
-        
-        <div style="margin: 10px 0;">
-            <strong>Python</strong>: 6 projects (29.0%)
-        </div>
-        
-        <div style="margin: 10px 0;">
-            <strong>JavaScript</strong>: 1 projects (5.0%)
-        </div>
-        
-        <div style="margin: 10px 0;">
-            <strong>HTML</strong>: 2 projects (10.0%)
-        </div>
-        
-        <div style="margin: 10px 0;">
-            <strong>Jupyter Notebook</strong>: 11 projects (52.0%)
-        </div>
-        
+        <footer>
+            <p>Generated automatically by AI/ML Portfolio Scanner</p>
+            <p>Powered by GitHub API</p>
+        </footer>
     </div>
+    
+    <script>
+        function toggleExpand() {
+            const content = document.getElementById('allProjects');
+            const button = document.getElementById('expandBtn');
+            const isExpanded = content.classList.contains('expanded');
+            
+            if (isExpanded) {
+                content.classList.remove('expanded');
+                button.textContent = '📁 Show All 25 More Projects';
+            } else {
+                content.classList.add('expanded');
+                button.textContent = '📁 Hide Additional Projects';
+            }
+        }
+        
+        function scrollToProjects() {
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
