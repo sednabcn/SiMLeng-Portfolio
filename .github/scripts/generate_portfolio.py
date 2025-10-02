@@ -17,9 +17,8 @@ from code_analyzer import CodeAnalyzer
 from framework_detector import FrameworkDetector
 from portfolio_builder import PortfolioBuilder
 from data_models import RepositoryData, PortfolioData
-from data_models import RepositoryData
 from status_detector import determine_project_status
-from config_loader import ConfigLoader
+from config_loader import PortfolioConfig
 
 def calculate_relevance_score(repo, frameworks):
     """Calculate AI/ML relevance score for a repository"""
@@ -102,11 +101,9 @@ async def main():
         
         # Load configuration
         config_path = Path(__file__).parent.parent / 'portfolio-config.yml'
-        config = None
-        if config_path.exists():
-            config_loader = ConfigLoader(str(config_path))
-            config = config_loader.load()
-            print(f"Loaded config from {config_path}")
+        portfolio_config = PortfolioConfig(str(config_path))
+        config = portfolio_config.config
+        print(f"Loaded config from {config_path}")
         
         # Initialize components
         repo_analyzer = RepoAnalyzer(token)
@@ -135,15 +132,14 @@ async def main():
                 continue
             
             # Check blacklist/whitelist
-            if config:
-                if config.is_blacklisted(repo['name']):
-                    print(f"  ✗ Skipped (blacklisted)")
-                    skipped_count += 1
-                    continue
-                if config.has_whitelist() and not config.is_whitelisted(repo['name']):
-                    print(f"  ✗ Skipped (not in whitelist)")
-                    skipped_count += 1
-                    continue
+            if portfolio_config.is_blacklisted(repo['name']):
+                print(f"  ✗ Skipped (blacklisted)")
+                skipped_count += 1
+                continue
+            if portfolio_config.get_whitelist() and not portfolio_config.is_whitelisted(repo['name']):
+                print(f"  ✗ Skipped (not in whitelist)")
+                skipped_count += 1
+                continue
             
             # Detect frameworks
             frameworks = await framework_detector.detect_frameworks(repo)
@@ -161,6 +157,7 @@ async def main():
             score = calculate_relevance_score(repo, frameworks)
             
             # Create repository data
+
             repo_data = RepositoryData(
                 name=repo['name'],
                 full_name=repo['full_name'],
@@ -172,7 +169,7 @@ async def main():
                 topics=repo.get('topics', []),
                 created_at=repo.get('created_at', ''),
                 updated_at=repo.get('updated_at', ''),
-                pushed_at=repo.get('pushed_at', ''),  # ✅ ADDED THIS
+                pushed_at=repo.get('pushed_at', ''),  # ADD THIS LINE BACK
                 frameworks=frameworks,
                 code_analysis=code_analysis,
                 ai_ml_relevance_score=score

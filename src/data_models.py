@@ -17,6 +17,7 @@ class RepositoryData:
     frameworks: Dict[str, List]
     code_analysis: Dict
     ai_ml_relevance_score: float
+    pushed_at: str = ''  # Last push date - most accurate for activity tracking
     project_status: str = 'past'  # 'current', 'recent', or 'past'
     
     def to_dict(self):
@@ -31,6 +32,7 @@ class RepositoryData:
             'topics': self.topics,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
+            'pushed_at': self.pushed_at,
             'frameworks': self.frameworks,
             'code_analysis': self.code_analysis,
             'ai_ml_relevance_score': self.ai_ml_relevance_score,
