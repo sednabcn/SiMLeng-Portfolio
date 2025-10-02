@@ -1,6 +1,6 @@
 {
   "total_repositories": 34,
-  "generation_date": "2025-10-02T17:26:18.646727",
+  "generation_date": "2025-10-02T17:29:04.017303",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -50,7 +50,7 @@
         "technology"
       ],
       "created_at": "2018-11-14T14:30:30Z",
-      "updated_at": "2025-10-02T17:26:05Z",
+      "updated_at": "2025-10-02T17:28:49Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
