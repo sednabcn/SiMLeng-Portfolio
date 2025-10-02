@@ -40,6 +40,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.PORTFOLIO_SCANNER }}
         TARGET_USER: sednabcn
         INCLUDE_PRIVATE_REPOS: true  # Set to 'true' to include private repos
+        REPO_BLACKLIST: test-repo,old-experiments,scratch-work,private-notes
       run: |
         python .github/scripts/generate_portfolio.py
     

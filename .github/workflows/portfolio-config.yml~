@@ -1,0 +1,40 @@
+# Portfolio Configuration File
+# Configure which repositories to include/exclude from your portfolio
+
+# Repositories to exclude (by exact name match)
+blacklist:
+  - test-repo
+  - scratch-work
+  - old-experiments
+  - private-notes
+  - learning-sandbox
+  - .github
+  - username.github.io  # Your GitHub Pages repo if you don't want it shown
+
+# Alternative: Use a whitelist (only include these repos)
+# If whitelist is defined, only these repos will be included
+# Leave empty or comment out to use blacklist mode instead
+whitelist: []
+  # - important-project
+  # - ml-pipeline
+  # - data-science-toolkit
+
+# Manual status overrides (optional)
+# Override automatic status detection for specific repos
+status_overrides:
+  my-current-project: current
+  legacy-ml-model: past
+  recent-experiment: recent
+
+# Minimum relevance score (0-10)
+# Repos below this score won't be included
+min_relevance_score: 1.0
+
+# Repository settings
+include_forks: false  # Set to true to include forked repos
+include_private: true  # Set to true to include private repos
+
+# Display settings
+show_private_badge: true  # Show "Private" badge on private repos
+group_by_status: true  # Group repos by current/recent/past
+sort_by: score  # Options: score, stars, updated, name
