@@ -70,8 +70,8 @@ def calculate_relevance_score(repo, frameworks):
     score += topic_matches * 1.5
     
     # Language bonus (Python, R, Julia are common for ML)
-    language = repo.get('language') or ''
-    if language.lower() in ['python', 'jupyter notebook', 'r', 'julia']:
+    language = repo.get('language', '').lower()
+    if language in ['python', 'jupyter notebook', 'r', 'julia']:
         score += 1.0
     
     # Popularity bonus
@@ -92,10 +92,7 @@ async def main():
             sys.exit(1)
         
         username = os.getenv('TARGET_USER', 'sednabcn')
-        include_private = os.getenv('INCLUDE_PRIVATE_REPOS', 'false').lower() == 'true'
-        
         print(f"Scanning repositories for user: {username}")
-        print(f"Include private repos: {include_private}")
         
         # Initialize components
         repo_analyzer = RepoAnalyzer(token)
@@ -116,8 +113,8 @@ async def main():
         for repo in repos:
             print(f"Analyzing: {repo['name']}")
             
-            # Skip private repositories (unless enabled)
-            if repo.get('private', False) and not include_private:
+            # Skip private repositories
+            if repo.get('private', False):
                 print(f"  ✗ Skipped (private repository)")
                 private_count += 1
                 continue
@@ -160,15 +157,8 @@ async def main():
                 print(f"  ✓ Included (score: {score:.1f}/10)")
             else:
                 print(f"  ✗ Skipped (score: {score:.1f}/10)")
-                skipped_count += 1
         
-        print(f"\n{'='*60}")
-        print(f"Repository Summary:")
-        print(f"  Total scanned: {len(repos)}")
-        print(f"  Private repos (excluded): {private_count}")
-        print(f"  Low relevance (excluded): {skipped_count}")
-        print(f"  Included in portfolio: {len(analyzed_repos)}")
-        print(f"{'='*60}\n")
+        print(f"\nFound {len(analyzed_repos)} relevant AI/ML repositories")
         
         # Build portfolio
         print("Building portfolio...")
