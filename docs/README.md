@@ -3,7 +3,7 @@
 Generated: 2025-10-02
 
 ## Overview
-- Repositories: 34
+- Repositories: 32
 - Stars: 2
 - Forks: 2
 
@@ -12,9 +12,9 @@ Generated: 2025-10-02
 ### [NLP-Spacy-Transformers](https://github.com/sednabcn/NLP-Spacy-Transformers)
 Tutorial and Applications of Spacy and Transformers to Natural Language Processing
 
-### [SiMLeng-Portfolio](https://github.com/sednabcn/SiMLeng-Portfolio)
-Simulation Modelling AI Technologies Projects Consulting 
-
 ### [Python-ML-Trade-Finance](https://github.com/sednabcn/Python-ML-Trade-Finance)
 Using Machine Learning Models to Trade Finance
+
+### [simleng_ai](https://github.com/sednabcn/simleng_ai)
+A Python library to develop strategies on Predictive modelling
 

@@ -1,6 +1,6 @@
 {
-  "total_repositories": 34,
-  "generation_date": "2025-10-02T17:29:04.017303",
+  "total_repositories": 32,
+  "generation_date": "2025-10-02T18:42:56.016567",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -13,6 +13,7 @@
       "topics": [],
       "created_at": "2024-04-06T15:27:52Z",
       "updated_at": "2025-02-21T15:41:15Z",
+      "pushed_at": "2025-02-21T15:41:12Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [
@@ -33,42 +34,6 @@
       "project_status": "past"
     },
     {
-      "name": "SiMLeng-Portfolio",
-      "full_name": "sednabcn/SiMLeng-Portfolio",
-      "description": "Simulation Modelling AI Technologies Projects Consulting ",
-      "url": "https://github.com/sednabcn/SiMLeng-Portfolio",
-      "stars": 0,
-      "forks": 0,
-      "language": "Python",
-      "topics": [
-        "artificial-intelligence",
-        "computingscience",
-        "educational-project",
-        "it",
-        "simulation",
-        "strategies",
-        "technology"
-      ],
-      "created_at": "2018-11-14T14:30:30Z",
-      "updated_at": "2025-10-02T17:28:49Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 5.0,
-      "project_status": "past"
-    },
-    {
       "name": "Python-ML-Trade-Finance",
       "full_name": "sednabcn/Python-ML-Trade-Finance",
       "description": "Using Machine Learning Models to Trade Finance",
@@ -79,6 +44,7 @@
       "topics": [],
       "created_at": "2021-03-07T20:36:33Z",
       "updated_at": "2025-02-21T17:00:16Z",
+      "pushed_at": "2025-02-21T17:00:11Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -107,6 +73,7 @@
       "topics": [],
       "created_at": "2023-08-18T22:44:44Z",
       "updated_at": "2024-06-07T21:21:25Z",
+      "pushed_at": "2024-06-07T21:21:22Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -135,6 +102,7 @@
       "topics": [],
       "created_at": "2020-12-17T17:38:48Z",
       "updated_at": "2020-12-17T17:57:09Z",
+      "pushed_at": "2020-12-17T17:57:07Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -163,6 +131,7 @@
       "topics": [],
       "created_at": "2019-07-21T08:12:07Z",
       "updated_at": "2020-04-05T19:47:17Z",
+      "pushed_at": "2020-04-05T19:47:15Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -196,6 +165,7 @@
       ],
       "created_at": "2019-07-08T11:07:12Z",
       "updated_at": "2019-07-08T11:39:26Z",
+      "pushed_at": "2019-07-08T11:39:25Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -229,6 +199,7 @@
       ],
       "created_at": "2019-07-07T12:54:52Z",
       "updated_at": "2019-07-08T09:05:46Z",
+      "pushed_at": "2019-07-08T09:05:45Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -258,7 +229,8 @@
       "language": "JavaScript",
       "topics": [],
       "created_at": "2024-07-27T09:13:42Z",
-      "updated_at": "2025-10-02T17:15:31Z",
+      "updated_at": "2025-10-02T18:28:37Z",
+      "pushed_at": "2025-10-02T18:28:33Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -274,7 +246,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 2.5,
-      "project_status": "past"
+      "project_status": "current"
     },
     {
       "name": "Python-ML-Algorithms",
@@ -291,6 +263,7 @@
       ],
       "created_at": "2019-07-09T10:41:45Z",
       "updated_at": "2025-06-18T04:47:26Z",
+      "pushed_at": "2019-08-11T18:02:37Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -319,6 +292,7 @@
       "topics": [],
       "created_at": "2024-01-01T21:21:37Z",
       "updated_at": "2025-06-02T13:50:39Z",
+      "pushed_at": "2025-06-02T13:50:34Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -334,7 +308,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 2.5,
-      "project_status": "past"
+      "project_status": "recent"
     },
     {
       "name": "customer_satisfaction_ai",
@@ -347,6 +321,7 @@
       "topics": [],
       "created_at": "2023-09-22T17:47:02Z",
       "updated_at": "2025-02-21T18:44:12Z",
+      "pushed_at": "2025-02-21T18:44:06Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -375,6 +350,7 @@
       "topics": [],
       "created_at": "2021-02-23T21:55:19Z",
       "updated_at": "2025-02-21T16:42:27Z",
+      "pushed_at": "2025-02-21T16:42:23Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -403,6 +379,7 @@
       "topics": [],
       "created_at": "2024-07-25T08:47:32Z",
       "updated_at": "2024-07-25T09:25:32Z",
+      "pushed_at": "2024-07-25T09:25:29Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -439,6 +416,7 @@
       ],
       "created_at": "2020-07-18T09:20:52Z",
       "updated_at": "2023-02-14T17:05:15Z",
+      "pushed_at": "2023-02-14T17:06:11Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -479,6 +457,7 @@
       ],
       "created_at": "2019-07-08T09:15:06Z",
       "updated_at": "2021-02-23T21:01:49Z",
+      "pushed_at": "2021-02-23T21:01:47Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -507,6 +486,7 @@
       "topics": [],
       "created_at": "2020-10-30T09:56:25Z",
       "updated_at": "2020-10-30T10:34:07Z",
+      "pushed_at": "2020-10-30T10:34:03Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -541,6 +521,7 @@
       ],
       "created_at": "2019-07-09T15:18:56Z",
       "updated_at": "2019-07-10T09:53:40Z",
+      "pushed_at": "2019-07-10T09:53:39Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -569,6 +550,7 @@
       "topics": [],
       "created_at": "2024-03-15T20:17:46Z",
       "updated_at": "2024-03-16T14:38:37Z",
+      "pushed_at": "2024-03-16T14:38:33Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -605,6 +587,7 @@
       ],
       "created_at": "2019-07-09T14:57:32Z",
       "updated_at": "2024-03-09T17:03:35Z",
+      "pushed_at": "2024-03-09T17:03:31Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -633,6 +616,7 @@
       "topics": [],
       "created_at": "2019-07-08T10:47:28Z",
       "updated_at": "2019-07-08T11:02:50Z",
+      "pushed_at": "2019-07-08T11:02:49Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -666,6 +650,7 @@
       ],
       "created_at": "2025-10-02T09:48:19Z",
       "updated_at": "2025-10-02T11:06:09Z",
+      "pushed_at": "2025-10-02T10:24:01Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -681,7 +666,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 1.5,
-      "project_status": "past"
+      "project_status": "current"
     },
     {
       "name": "AI-ML-SIMULATION",
@@ -694,6 +679,7 @@
       "topics": [],
       "created_at": "2022-02-05T14:07:01Z",
       "updated_at": "2025-05-23T21:00:45Z",
+      "pushed_at": "2025-05-23T21:00:28Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -709,7 +695,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 1.5,
-      "project_status": "past"
+      "project_status": "recent"
     },
     {
       "name": "MATHS-STATISTICS-TEACHING",
@@ -722,6 +708,7 @@
       "topics": [],
       "created_at": "2022-02-18T19:49:54Z",
       "updated_at": "2025-05-23T19:40:48Z",
+      "pushed_at": "2025-05-23T19:40:44Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -737,7 +724,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 1.5,
-      "project_status": "past"
+      "project_status": "recent"
     },
     {
       "name": "ai-llm-blog",
@@ -750,6 +737,7 @@
       "topics": [],
       "created_at": "2025-03-17T17:53:10Z",
       "updated_at": "2025-05-16T21:59:36Z",
+      "pushed_at": "2025-05-16T22:00:22Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -765,35 +753,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 1.5,
-      "project_status": "past"
-    },
-    {
-      "name": "MAIN-PERSONAL-DOCS",
-      "full_name": "sednabcn/MAIN-PERSONAL-DOCS",
-      "description": "My files ",
-      "url": "https://github.com/sednabcn/MAIN-PERSONAL-DOCS",
-      "stars": 0,
-      "forks": 0,
-      "language": null,
-      "topics": [],
-      "created_at": "2021-03-09T11:52:31Z",
-      "updated_at": "2025-04-11T18:22:32Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 1.5,
-      "project_status": "past"
+      "project_status": "recent"
     },
     {
       "name": "LLM-HypatiaX",
@@ -806,6 +766,7 @@
       "topics": [],
       "created_at": "2024-04-18T09:10:03Z",
       "updated_at": "2025-10-02T16:50:58Z",
+      "pushed_at": "2025-10-02T16:50:51Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -821,7 +782,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 1.0,
-      "project_status": "past"
+      "project_status": "current"
     },
     {
       "name": "CodeMastery-Python-Cpp-R-SQL",
@@ -834,6 +795,7 @@
       "topics": [],
       "created_at": "2024-07-22T15:04:53Z",
       "updated_at": "2025-09-30T18:16:22Z",
+      "pushed_at": "2025-09-30T18:16:18Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -849,7 +811,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 1.0,
-      "project_status": "past"
+      "project_status": "current"
     },
     {
       "name": "AQU-Portfolio",
@@ -883,6 +845,7 @@
       ],
       "created_at": "2018-06-12T13:33:18Z",
       "updated_at": "2025-05-23T18:37:51Z",
+      "pushed_at": "2025-05-23T18:26:28Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -898,7 +861,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 1.0,
-      "project_status": "past"
+      "project_status": "recent"
     },
     {
       "name": "Tourism-Enhancer-Index-by-Neighbourhoods-in-London",
@@ -911,6 +874,7 @@
       "topics": [],
       "created_at": "2020-03-21T17:49:54Z",
       "updated_at": "2025-05-12T17:13:40Z",
+      "pushed_at": "2025-02-21T17:57:11Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -939,6 +903,7 @@
       "topics": [],
       "created_at": "2025-04-11T18:52:56Z",
       "updated_at": "2025-04-12T09:54:54Z",
+      "pushed_at": "2025-04-12T09:54:51Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -954,7 +919,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 1.0,
-      "project_status": "past"
+      "project_status": "recent"
     },
     {
       "name": "Python-IMAGE-PROCESSING",
@@ -967,6 +932,7 @@
       "topics": [],
       "created_at": "2020-06-05T15:51:39Z",
       "updated_at": "2025-02-21T15:25:08Z",
+      "pushed_at": "2025-02-21T15:25:04Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -995,6 +961,7 @@
       "topics": [],
       "created_at": "2024-01-10T17:08:11Z",
       "updated_at": "2024-01-10T17:08:12Z",
+      "pushed_at": "2024-02-06T17:49:12Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -1023,6 +990,7 @@
       "topics": [],
       "created_at": "2019-09-15T09:09:21Z",
       "updated_at": "2020-03-20T22:08:32Z",
+      "pushed_at": "2020-03-20T22:08:30Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -1047,23 +1015,23 @@
     "languages": {
       "Jupyter Notebook": {
         "count": 13,
-        "percentage": 38.23529411764706
+        "percentage": 40.625
       },
       "Python": {
-        "count": 8,
-        "percentage": 23.52941176470588
+        "count": 7,
+        "percentage": 21.875
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 5.88235294117647
+        "percentage": 6.25
       },
       "HTML": {
         "count": 4,
-        "percentage": 11.76470588235294
+        "percentage": 12.5
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 2.941176470588235
+        "percentage": 3.125
       }
     },
     "frameworks_summary": {},
@@ -1074,23 +1042,23 @@
     "programming_languages": {
       "Jupyter Notebook": {
         "count": 13,
-        "percentage": 38.23529411764706
+        "percentage": 40.625
       },
       "Python": {
-        "count": 8,
-        "percentage": 23.52941176470588
+        "count": 7,
+        "percentage": 21.875
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 5.88235294117647
+        "percentage": 6.25
       },
       "HTML": {
         "count": 4,
-        "percentage": 11.76470588235294
+        "percentage": 12.5
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 2.941176470588235
+        "percentage": 3.125
       }
     },
     "ml_frameworks": {},
@@ -1106,27 +1074,9 @@
       "forks": 0,
       "language": "Jupyter Notebook",
       "relevance_score": 6.5,
+      "project_status": "past",
       "key_frameworks": [],
       "topics": [],
-      "highlights": []
-    },
-    {
-      "name": "SiMLeng-Portfolio",
-      "full_name": "sednabcn/SiMLeng-Portfolio",
-      "description": "Simulation Modelling AI Technologies Projects Consulting ",
-      "url": "https://github.com/sednabcn/SiMLeng-Portfolio",
-      "stars": 0,
-      "forks": 0,
-      "language": "Python",
-      "relevance_score": 5.0,
-      "key_frameworks": [],
-      "topics": [
-        "artificial-intelligence",
-        "computingscience",
-        "educational-project",
-        "it",
-        "simulation"
-      ],
       "highlights": []
     },
     {
@@ -1138,6 +1088,7 @@
       "forks": 0,
       "language": "Jupyter Notebook",
       "relevance_score": 3.5,
+      "project_status": "past",
       "key_frameworks": [],
       "topics": [],
       "highlights": []
@@ -1151,6 +1102,7 @@
       "forks": 0,
       "language": "Python",
       "relevance_score": 3.5,
+      "project_status": "past",
       "key_frameworks": [],
       "topics": [],
       "highlights": []
@@ -1164,6 +1116,21 @@
       "forks": 0,
       "language": "Jupyter Notebook",
       "relevance_score": 3.5,
+      "project_status": "past",
+      "key_frameworks": [],
+      "topics": [],
+      "highlights": []
+    },
+    {
+      "name": "Python-Coursera-AI-DEEP-LEARNING",
+      "full_name": "sednabcn/Python-Coursera-AI-DEEP-LEARNING",
+      "description": "This repository contains the exercises and projects related to DEEP LEARNING along the Coursera Course entitled :",
+      "url": "https://github.com/sednabcn/Python-Coursera-AI-DEEP-LEARNING",
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "relevance_score": 3.5,
+      "project_status": "past",
       "key_frameworks": [],
       "topics": [],
       "highlights": []
@@ -1176,6 +1143,6 @@
     "software_engineering": 5.0,
     "research_ability": 4.0,
     "collaboration": 3.0,
-    "overall_score": 2.323529411764706
+    "overall_score": 2.265625
   }
 }
