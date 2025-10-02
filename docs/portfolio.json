@@ -1,6 +1,6 @@
 {
-  "total_repositories": 30,
-  "generation_date": "2025-10-02T08:47:03.233548",
+  "total_repositories": 33,
+  "generation_date": "2025-10-02T09:06:19.041642",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -49,7 +49,7 @@
         "technology"
       ],
       "created_at": "2018-11-14T14:30:30Z",
-      "updated_at": "2025-10-02T08:46:52Z",
+      "updated_at": "2025-10-02T09:06:05Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -711,6 +711,33 @@
       "ai_ml_relevance_score": 1.5
     },
     {
+      "name": "MAIN-PERSONAL-DOCS",
+      "full_name": "sednabcn/MAIN-PERSONAL-DOCS",
+      "description": "My files ",
+      "url": "https://github.com/sednabcn/MAIN-PERSONAL-DOCS",
+      "stars": 0,
+      "forks": 0,
+      "language": null,
+      "topics": [],
+      "created_at": "2021-03-09T11:52:31Z",
+      "updated_at": "2025-04-11T18:22:32Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.5
+    },
+    {
       "name": "CodeMastery-Python-Cpp-R-SQL",
       "full_name": "sednabcn/CodeMastery-Python-Cpp-R-SQL",
       "description": "Welcome to the Programming Language Training project! This repository is designed to provide training and practice for four major programming languages: Python, C++, R, and SQL. ",
@@ -796,6 +823,60 @@
       "topics": [],
       "created_at": "2020-03-21T17:49:54Z",
       "updated_at": "2025-05-12T17:13:40Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0
+    },
+    {
+      "name": "docs-transfer-temp-delete-by-May15",
+      "full_name": "sednabcn/docs-transfer-temp-delete-by-May15",
+      "description": null,
+      "url": "https://github.com/sednabcn/docs-transfer-temp-delete-by-May15",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "topics": [],
+      "created_at": "2025-04-11T18:52:56Z",
+      "updated_at": "2025-04-12T09:54:54Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0
+    },
+    {
+      "name": "LLM-HypatiaX",
+      "full_name": "sednabcn/LLM-HypatiaX",
+      "description": "\"LLM-HypatiaX is a repository dedicated to AI-Driven Formula Discovery with LLM\"",
+      "url": "https://github.com/sednabcn/LLM-HypatiaX",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "topics": [],
+      "created_at": "2024-04-18T09:10:03Z",
+      "updated_at": "2025-02-21T18:28:48Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -900,23 +981,23 @@
     "languages": {
       "Jupyter Notebook": {
         "count": 13,
-        "percentage": 43.333333333333336
+        "percentage": 39.39393939393939
       },
       "Python": {
-        "count": 6,
-        "percentage": 20.0
+        "count": 8,
+        "percentage": 24.242424242424242
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 6.666666666666667
+        "percentage": 6.0606060606060606
       },
       "HTML": {
         "count": 4,
-        "percentage": 13.333333333333334
+        "percentage": 12.121212121212121
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 3.3333333333333335
+        "percentage": 3.0303030303030303
       }
     },
     "frameworks_summary": {},
@@ -927,23 +1008,23 @@
     "programming_languages": {
       "Jupyter Notebook": {
         "count": 13,
-        "percentage": 43.333333333333336
+        "percentage": 39.39393939393939
       },
       "Python": {
-        "count": 6,
-        "percentage": 20.0
+        "count": 8,
+        "percentage": 24.242424242424242
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 6.666666666666667
+        "percentage": 6.0606060606060606
       },
       "HTML": {
         "count": 4,
-        "percentage": 13.333333333333334
+        "percentage": 12.121212121212121
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 3.3333333333333335
+        "percentage": 3.0303030303030303
       }
     },
     "ml_frameworks": {},
@@ -1029,6 +1110,6 @@
     "software_engineering": 5.0,
     "research_ability": 4.0,
     "collaboration": 3.0,
-    "overall_score": 2.466666666666667
+    "overall_score": 2.3484848484848486
   }
 }
