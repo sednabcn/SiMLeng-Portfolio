@@ -1,6 +1,6 @@
 {
-  "total_repositories": 33,
-  "generation_date": "2025-10-02T09:06:19.041642",
+  "total_repositories": 34,
+  "generation_date": "2025-10-02T11:17:17.156617",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -29,7 +29,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 6.5
+      "ai_ml_relevance_score": 6.5,
+      "project_status": "past"
     },
     {
       "name": "SiMLeng-Portfolio",
@@ -49,7 +50,7 @@
         "technology"
       ],
       "created_at": "2018-11-14T14:30:30Z",
-      "updated_at": "2025-10-02T09:06:05Z",
+      "updated_at": "2025-10-02T11:17:07Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -64,7 +65,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 5.0
+      "ai_ml_relevance_score": 5.0,
+      "project_status": "past"
     },
     {
       "name": "Python-ML-Trade-Finance",
@@ -91,7 +93,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 3.5
+      "ai_ml_relevance_score": 3.5,
+      "project_status": "past"
     },
     {
       "name": "simleng_ai",
@@ -118,7 +121,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 3.5
+      "ai_ml_relevance_score": 3.5,
+      "project_status": "past"
     },
     {
       "name": "Python-Sequences-Time-Series-and-Prediction",
@@ -145,7 +149,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 3.5
+      "ai_ml_relevance_score": 3.5,
+      "project_status": "past"
     },
     {
       "name": "Python-Coursera-AI-DEEP-LEARNING",
@@ -172,7 +177,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 3.5
+      "ai_ml_relevance_score": 3.5,
+      "project_status": "past"
     },
     {
       "name": "Python-ML-Sample-Collocation",
@@ -204,7 +210,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 3.5
+      "ai_ml_relevance_score": 3.5,
+      "project_status": "past"
     },
     {
       "name": "Python-DataScience-Coursera",
@@ -238,7 +245,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 3.5
+      "ai_ml_relevance_score": 3.5,
+      "project_status": "past"
     },
     {
       "name": "stem-ai-tutoring",
@@ -250,7 +258,7 @@
       "language": "JavaScript",
       "topics": [],
       "created_at": "2024-07-27T09:13:42Z",
-      "updated_at": "2025-10-02T08:26:48Z",
+      "updated_at": "2025-10-02T11:15:40Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -265,7 +273,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.5
+      "ai_ml_relevance_score": 2.5,
+      "project_status": "past"
     },
     {
       "name": "Python-ML-Algorithms",
@@ -296,7 +305,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.5
+      "ai_ml_relevance_score": 2.5,
+      "project_status": "past"
     },
     {
       "name": "Generative_AI",
@@ -323,7 +333,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.5
+      "ai_ml_relevance_score": 2.5,
+      "project_status": "past"
     },
     {
       "name": "customer_satisfaction_ai",
@@ -350,7 +361,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.5
+      "ai_ml_relevance_score": 2.5,
+      "project_status": "past"
     },
     {
       "name": "Python-Reinforcement-Learning",
@@ -377,7 +389,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.5
+      "ai_ml_relevance_score": 2.5,
+      "project_status": "past"
     },
     {
       "name": "QuantFinanceModels",
@@ -404,7 +417,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.5
+      "ai_ml_relevance_score": 2.5,
+      "project_status": "past"
     },
     {
       "name": "Python-Package-Explained",
@@ -439,7 +453,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.5
+      "ai_ml_relevance_score": 2.5,
+      "project_status": "past"
     },
     {
       "name": "Python-ML-Statsmodels",
@@ -478,7 +493,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.5
+      "ai_ml_relevance_score": 2.5,
+      "project_status": "past"
     },
     {
       "name": "Practical-Time-Series-with-R",
@@ -505,7 +521,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.5
+      "ai_ml_relevance_score": 2.5,
+      "project_status": "past"
     },
     {
       "name": "Python-JAVA-HADOOP",
@@ -538,7 +555,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.5
+      "ai_ml_relevance_score": 2.5,
+      "project_status": "past"
     },
     {
       "name": "DATA_SCIENCE_INTERVIEWS",
@@ -565,7 +583,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.0
+      "ai_ml_relevance_score": 2.0,
+      "project_status": "past"
     },
     {
       "name": "Python-NLTK",
@@ -600,7 +619,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.0
+      "ai_ml_relevance_score": 2.0,
+      "project_status": "past"
     },
     {
       "name": "Python-Genlogistic",
@@ -627,7 +647,41 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 2.0
+      "ai_ml_relevance_score": 2.0,
+      "project_status": "past"
+    },
+    {
+      "name": "Real-World-Statistics-Projects",
+      "full_name": "sednabcn/Real-World-Statistics-Projects",
+      "description": "A collection of Applied Statistics Projects is collected here ",
+      "url": "https://github.com/sednabcn/Real-World-Statistics-Projects",
+      "stars": 0,
+      "forks": 0,
+      "language": null,
+      "topics": [
+        "data-analysis",
+        "descriptive-analysis",
+        "inference-statistics",
+        "statistics"
+      ],
+      "created_at": "2025-10-02T09:48:19Z",
+      "updated_at": "2025-10-02T11:06:09Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.5,
+      "project_status": "past"
     },
     {
       "name": "AI-ML-SIMULATION",
@@ -654,7 +708,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 1.5
+      "ai_ml_relevance_score": 1.5,
+      "project_status": "past"
     },
     {
       "name": "MATHS-STATISTICS-TEACHING",
@@ -681,7 +736,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 1.5
+      "ai_ml_relevance_score": 1.5,
+      "project_status": "past"
     },
     {
       "name": "ai-llm-blog",
@@ -708,7 +764,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 1.5
+      "ai_ml_relevance_score": 1.5,
+      "project_status": "past"
     },
     {
       "name": "MAIN-PERSONAL-DOCS",
@@ -735,7 +792,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 1.5
+      "ai_ml_relevance_score": 1.5,
+      "project_status": "past"
     },
     {
       "name": "CodeMastery-Python-Cpp-R-SQL",
@@ -762,7 +820,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 1.0
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "past"
     },
     {
       "name": "AQU-Portfolio",
@@ -810,7 +869,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 1.0
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "past"
     },
     {
       "name": "Tourism-Enhancer-Index-by-Neighbourhoods-in-London",
@@ -837,7 +897,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 1.0
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "past"
     },
     {
       "name": "docs-transfer-temp-delete-by-May15",
@@ -864,7 +925,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 1.0
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "past"
     },
     {
       "name": "LLM-HypatiaX",
@@ -891,7 +953,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 1.0
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "past"
     },
     {
       "name": "Python-IMAGE-PROCESSING",
@@ -918,7 +981,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 1.0
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "past"
     },
     {
       "name": "Tableau-Power_BI-Experiments",
@@ -945,7 +1009,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 1.0
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "past"
     },
     {
       "name": "Python-Capstone",
@@ -972,7 +1037,8 @@
         "has_models": false,
         "has_tests": false
       },
-      "ai_ml_relevance_score": 1.0
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "past"
     }
   ],
   "insights": {
@@ -981,23 +1047,23 @@
     "languages": {
       "Jupyter Notebook": {
         "count": 13,
-        "percentage": 39.39393939393939
+        "percentage": 38.23529411764706
       },
       "Python": {
         "count": 8,
-        "percentage": 24.242424242424242
+        "percentage": 23.52941176470588
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 6.0606060606060606
+        "percentage": 5.88235294117647
       },
       "HTML": {
         "count": 4,
-        "percentage": 12.121212121212121
+        "percentage": 11.76470588235294
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 3.0303030303030303
+        "percentage": 2.941176470588235
       }
     },
     "frameworks_summary": {},
@@ -1008,23 +1074,23 @@
     "programming_languages": {
       "Jupyter Notebook": {
         "count": 13,
-        "percentage": 39.39393939393939
+        "percentage": 38.23529411764706
       },
       "Python": {
         "count": 8,
-        "percentage": 24.242424242424242
+        "percentage": 23.52941176470588
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 6.0606060606060606
+        "percentage": 5.88235294117647
       },
       "HTML": {
         "count": 4,
-        "percentage": 12.121212121212121
+        "percentage": 11.76470588235294
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 3.0303030303030303
+        "percentage": 2.941176470588235
       }
     },
     "ml_frameworks": {},
@@ -1110,6 +1176,6 @@
     "software_engineering": 5.0,
     "research_ability": 4.0,
     "collaboration": 3.0,
-    "overall_score": 2.3484848484848486
+    "overall_score": 2.323529411764706
   }
 }
