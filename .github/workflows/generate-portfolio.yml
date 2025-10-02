@@ -32,9 +32,9 @@ jobs:
     
     - name: Generate portfolio
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PORTFOLIO_SCANNER }}
         TARGET_USER: sednabcn
-        INCLUDE_PRIVATE_REPOS: false  # Change to 'true' to include private repos
+        INCLUDE_PRIVATE_REPOS: true  # Change to 'true' to include private repos
       run: |
         python .github/scripts/generate_portfolio.py
     
