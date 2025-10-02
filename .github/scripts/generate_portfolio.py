@@ -17,6 +17,8 @@ from code_analyzer import CodeAnalyzer
 from framework_detector import FrameworkDetector
 from portfolio_builder import PortfolioBuilder, PortfolioData
 from data_models import RepositoryData
+from status_detector import determine_project_status
+from config_loader import ConfigLoader
 
 def calculate_relevance_score(repo, frameworks):
     """Calculate AI/ML relevance score for a repository"""
@@ -97,6 +99,14 @@ async def main():
         print(f"Scanning repositories for user: {username}")
         print(f"Include private repos: {include_private}")
         
+        # Load configuration
+        config_path = Path(__file__).parent.parent / 'portfolio-config.yml'
+        config = None
+        if config_path.exists():
+            config_loader = ConfigLoader(str(config_path))
+            config = config_loader.load()
+            print(f"Loaded config from {config_path}")
+        
         # Initialize components
         repo_analyzer = RepoAnalyzer(token)
         code_analyzer = CodeAnalyzer()
@@ -112,6 +122,7 @@ async def main():
         analyzed_repos = []
         private_count = 0
         skipped_count = 0
+        status_counts = {'current': 0, 'recent': 0, 'past': 0}
         
         for repo in repos:
             print(f"Analyzing: {repo['name']}")
@@ -121,6 +132,17 @@ async def main():
                 print(f"  ✗ Skipped (private repository)")
                 private_count += 1
                 continue
+            
+            # Check blacklist/whitelist
+            if config:
+                if config.is_blacklisted(repo['name']):
+                    print(f"  ✗ Skipped (blacklisted)")
+                    skipped_count += 1
+                    continue
+                if config.has_whitelist() and not config.is_whitelisted(repo['name']):
+                    print(f"  ✗ Skipped (not in whitelist)")
+                    skipped_count += 1
+                    continue
             
             # Detect frameworks
             frameworks = await framework_detector.detect_frameworks(repo)
@@ -149,15 +171,20 @@ async def main():
                 topics=repo.get('topics', []),
                 created_at=repo.get('created_at', ''),
                 updated_at=repo.get('updated_at', ''),
+                pushed_at=repo.get('pushed_at', ''),  # ✅ ADDED THIS
                 frameworks=frameworks,
                 code_analysis=code_analysis,
                 ai_ml_relevance_score=score
             )
             
+            # Determine project status
+            repo_data.project_status = determine_project_status(repo_data, config)
+            status_counts[repo_data.project_status] += 1
+            
             # Lower threshold: include repos with score >= 1.0
             if repo_data.ai_ml_relevance_score >= 1.0:
                 analyzed_repos.append(repo_data)
-                print(f"  ✓ Included (score: {score:.1f}/10)")
+                print(f"  ✓ Included (score: {score:.1f}/10, status: {repo_data.project_status})")
             else:
                 print(f"  ✗ Skipped (score: {score:.1f}/10)")
                 skipped_count += 1
@@ -168,14 +195,18 @@ async def main():
         print(f"  Private repos (excluded): {private_count}")
         print(f"  Low relevance (excluded): {skipped_count}")
         print(f"  Included in portfolio: {len(analyzed_repos)}")
+        print(f"\nStatus Distribution:")
+        print(f"  🟢 CURRENT: {status_counts['current']}")
+        print(f"  🟡 RECENT: {status_counts['recent']}")
+        print(f"  ⚪ PAST: {status_counts['past']}")
         print(f"{'='*60}\n")
         
         # Build portfolio
         print("Building portfolio...")
-        config = {
+        config_dict = {
             'output': {'generate_html': True, 'include_code_samples': True}
         }
-        portfolio = portfolio_builder.build_portfolio(analyzed_repos, config)
+        portfolio = portfolio_builder.build_portfolio(analyzed_repos, config_dict)
         
         # Save results
         output_dir = Path(__file__).parent.parent.parent / 'docs'

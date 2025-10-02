@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Portfolio Builder with safe template rendering"""
+"""Portfolio Builder with status badge rendering"""
 import json
 import logging
 from typing import Dict, List, Any
@@ -62,6 +62,7 @@ class PortfolioBuilder:
                 'forks': repo.forks,
                 'language': repo.language,
                 'relevance_score': repo.ai_ml_relevance_score,
+                'project_status': repo.project_status,  # Include status
                 'key_frameworks': [],
                 'topics': repo.topics[:5] if repo.topics else [],
                 'highlights': []
@@ -86,7 +87,7 @@ class PortfolioBuilder:
         return portfolio
     
     def generate_html_report(self, portfolio) -> str:
-        """Generate improved HTML with expandable sections and better styling"""
+        """Generate improved HTML with status badges"""
         
         # Separate top 5 from the rest
         top_5 = portfolio.highlights
@@ -208,10 +209,18 @@ class PortfolioBuilder:
             transform: translateY(-2px);
         }
         
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
         .project-card h3 {
             color: #667eea;
             font-size: 1.5em;
-            margin-bottom: 15px;
+            margin: 0;
         }
         
         .project-card h3 a {
@@ -263,6 +272,31 @@ class PortfolioBuilder:
         .badge-language {
             background: #e0e0e0;
             color: #333;
+        }
+        
+        /* Status badges */
+        .badge-status {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75em;
+            padding: 4px 10px;
+            border-radius: 12px;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-status.current {
+            background: #22c55e;
+            color: white;
+        }
+        
+        .badge-status.recent {
+            background: #eab308;
+            color: #333;
+        }
+        
+        .badge-status.past {
+            background: #94a3b8;
+            color: white;
         }
         
         .topics {
@@ -368,7 +402,7 @@ class PortfolioBuilder:
 <body>
     <div class="container">
         <header>
-            <h1>🤖 AI/ML Portfolio Report</h1>
+            <h1>AI/ML Portfolio Report</h1>
             <p class="generated-date">Generated: {{ date }}</p>
         </header>
         
@@ -392,15 +426,20 @@ class PortfolioBuilder:
         </div>
         
         <div class="content" id="projects">
-            <h2>🏆 Top Projects</h2>
+            <h2>Top Projects</h2>
             <div class="project-grid">
                 {% for h in highlights %}
                 <div class="project-card">
-                    <h3><a href="{{ h.url }}" target="_blank">{{ h.name }}</a></h3>
+                    <div class="project-header">
+                        <h3><a href="{{ h.url }}" target="_blank">{{ h.name }}</a></h3>
+                        {% if h.project_status %}
+                        <span class="badge badge-status {{ h.project_status }}">{{ h.project_status }}</span>
+                        {% endif %}
+                    </div>
                     <p class="project-description">{{ h.description }}</p>
                     <div class="project-meta">
-                        <span class="badge badge-stars">⭐ {{ h.stars }}</span>
-                        <span class="badge badge-forks">🔱 {{ h.forks }}</span>
+                        <span class="badge badge-stars">{{ h.stars }}</span>
+                        <span class="badge badge-forks">{{ h.forks }}</span>
                         <span class="badge badge-score">Score: {{ h.relevance_score|round(1) }}/10</span>
                         {% if h.language %}
                         <span class="badge badge-language">{{ h.language }}</span>
@@ -420,17 +459,22 @@ class PortfolioBuilder:
             {% if other_repos %}
             <div class="expandable">
                 <button class="expand-button" onclick="toggleExpand()" id="expandBtn">
-                    📁 Show All {{ other_count }} More Projects
+                    Show All {{ other_count }} More Projects
                 </button>
                 <div class="expandable-content" id="allProjects">
                     <div class="project-grid" style="margin-top: 20px;">
                         {% for repo in other_repos %}
                         <div class="project-card">
-                            <h3><a href="{{ repo.url }}" target="_blank">{{ repo.name }}</a></h3>
+                            <div class="project-header">
+                                <h3><a href="{{ repo.url }}" target="_blank">{{ repo.name }}</a></h3>
+                                {% if repo.project_status %}
+                                <span class="badge badge-status {{ repo.project_status }}">{{ repo.project_status }}</span>
+                                {% endif %}
+                            </div>
                             <p class="project-description">{{ repo.description or 'No description available' }}</p>
                             <div class="project-meta">
-                                <span class="badge badge-stars">⭐ {{ repo.stars }}</span>
-                                <span class="badge badge-forks">🔱 {{ repo.forks }}</span>
+                                <span class="badge badge-stars">{{ repo.stars }}</span>
+                                <span class="badge badge-forks">{{ repo.forks }}</span>
                                 <span class="badge badge-score">Score: {{ repo.ai_ml_relevance_score|round(1) }}/10</span>
                                 {% if repo.language %}
                                 <span class="badge badge-language">{{ repo.language }}</span>
@@ -450,7 +494,7 @@ class PortfolioBuilder:
             </div>
             {% endif %}
             
-            <h2>💻 Languages</h2>
+            <h2>Languages</h2>
             <div class="languages">
                 {% for lang, data in languages.items() %}
                 <div class="language-item">
@@ -475,10 +519,10 @@ class PortfolioBuilder:
             
             if (isExpanded) {
                 content.classList.remove('expanded');
-                button.textContent = '📁 Show All {{ other_count }} More Projects';
+                button.textContent = 'Show All {{ other_count }} More Projects';
             } else {
                 content.classList.add('expanded');
-                button.textContent = '📁 Hide Additional Projects';
+                button.textContent = 'Hide Additional Projects';
             }
         }
         
@@ -518,26 +562,3 @@ Generated: {portfolio.generation_date[:10]}
             md += f"### [{h['name']}]({h['url']})\n{h['description']}\n\n"
         
         return md
-
-class PortfolioData:
-    def __init__(self):
-        self.total_repositories = 0
-        self.generation_date = ""
-        self.repositories = []
-        self.insights = {}
-        self.categories = {}
-        self.skills = {}
-        self.highlights = []
-        self.expertise_metrics = {}
-    
-    def to_dict(self):
-        return {
-            'total_repositories': self.total_repositories,
-            'generation_date': self.generation_date,
-            'repositories': [r.to_dict() for r in self.repositories],
-            'insights': self.insights,
-            'categories': self.categories,
-            'skills': self.skills,
-            'highlights': self.highlights,
-            'expertise_metrics': self.expertise_metrics
-        }
