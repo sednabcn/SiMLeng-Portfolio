@@ -1,6 +1,6 @@
 {
-  "total_repositories": 32,
-  "generation_date": "2025-10-02T19:01:43.796946",
+  "total_repositories": 33,
+  "generation_date": "2025-10-05T00:58:50.049605",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -229,8 +229,8 @@
       "language": "JavaScript",
       "topics": [],
       "created_at": "2024-07-27T09:13:42Z",
-      "updated_at": "2025-10-02T18:28:37Z",
-      "pushed_at": "2025-10-02T18:28:33Z",
+      "updated_at": "2025-10-04T23:17:10Z",
+      "pushed_at": "2025-10-04T23:17:06Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -756,6 +756,35 @@
       "project_status": "recent"
     },
     {
+      "name": "services",
+      "full_name": "sednabcn/services",
+      "description": "Host for my freelance services and campaigns",
+      "url": "https://github.com/sednabcn/services",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "topics": [],
+      "created_at": "2025-09-23T10:29:38Z",
+      "updated_at": "2025-10-04T13:18:20Z",
+      "pushed_at": "2025-10-04T13:18:17Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "current"
+    },
+    {
       "name": "LLM-HypatiaX",
       "full_name": "sednabcn/LLM-HypatiaX",
       "description": "\"LLM-HypatiaX is a repository dedicated to AI-Driven Formula Discovery with LLM\"",
@@ -1015,23 +1044,23 @@
     "languages": {
       "Jupyter Notebook": {
         "count": 13,
-        "percentage": 40.625
+        "percentage": 39.39393939393939
       },
       "Python": {
-        "count": 7,
-        "percentage": 21.875
+        "count": 8,
+        "percentage": 24.242424242424242
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 6.25
+        "percentage": 6.0606060606060606
       },
       "HTML": {
         "count": 4,
-        "percentage": 12.5
+        "percentage": 12.121212121212121
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 3.125
+        "percentage": 3.0303030303030303
       }
     },
     "frameworks_summary": {},
@@ -1042,23 +1071,23 @@
     "programming_languages": {
       "Jupyter Notebook": {
         "count": 13,
-        "percentage": 40.625
+        "percentage": 39.39393939393939
       },
       "Python": {
-        "count": 7,
-        "percentage": 21.875
+        "count": 8,
+        "percentage": 24.242424242424242
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 6.25
+        "percentage": 6.0606060606060606
       },
       "HTML": {
         "count": 4,
-        "percentage": 12.5
+        "percentage": 12.121212121212121
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 3.125
+        "percentage": 3.0303030303030303
       }
     },
     "ml_frameworks": {},
@@ -1143,6 +1172,6 @@
     "software_engineering": 5.0,
     "research_ability": 4.0,
     "collaboration": 3.0,
-    "overall_score": 2.265625
+    "overall_score": 2.227272727272727
   }
 }
