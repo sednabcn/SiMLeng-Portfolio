@@ -1,6 +1,6 @@
 {
   "total_repositories": 36,
-  "generation_date": "2025-10-19T01:01:22.643057",
+  "generation_date": "2025-10-26T00:59:30.285400",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -229,8 +229,8 @@
       "language": "JavaScript",
       "topics": [],
       "created_at": "2024-07-27T09:13:42Z",
-      "updated_at": "2025-10-18T23:17:50Z",
-      "pushed_at": "2025-10-18T23:17:46Z",
+      "updated_at": "2025-10-25T23:17:14Z",
+      "pushed_at": "2025-10-25T23:17:10Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -569,35 +569,6 @@
       "project_status": "past"
     },
     {
-      "name": "freelance-services",
-      "full_name": "sednabcn/freelance-services",
-      "description": "AI \u00b7 Data Science \u00b7 Web Automation \u2014 Freelance services in Machine Learning, Analytics, and Automation solutions for businesses and individuals.",
-      "url": "https://github.com/sednabcn/freelance-services",
-      "stars": 0,
-      "forks": 0,
-      "language": "Python",
-      "topics": [],
-      "created_at": "2025-10-12T17:15:39Z",
-      "updated_at": "2025-10-13T14:25:45Z",
-      "pushed_at": "2025-10-13T14:25:40Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 2.0,
-      "project_status": "current"
-    },
-    {
       "name": "DATA_SCIENCE_INTERVIEWS",
       "full_name": "sednabcn/DATA_SCIENCE_INTERVIEWS",
       "description": "This repository contains the test and preparation for Data Science Interviews",
@@ -814,17 +785,17 @@
       "project_status": "recent"
     },
     {
-      "name": "advanced-job-engine",
-      "full_name": "sednabcn/advanced-job-engine",
-      "description": "Engine reverse to job search ",
-      "url": "https://github.com/sednabcn/advanced-job-engine",
+      "name": "job-search-automation",
+      "full_name": "sednabcn/job-search-automation",
+      "description": "Develop tools for deploy, monitore, and tracking job search applications ",
+      "url": "https://github.com/sednabcn/job-search-automation",
       "stars": 0,
       "forks": 0,
       "language": "Python",
       "topics": [],
-      "created_at": "2025-10-14T21:30:55Z",
-      "updated_at": "2025-10-18T21:56:14Z",
-      "pushed_at": "2025-10-18T21:56:11Z",
+      "created_at": "2025-10-10T19:20:49Z",
+      "updated_at": "2025-10-25T20:15:04Z",
+      "pushed_at": "2025-10-25T20:15:00Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -843,17 +814,46 @@
       "project_status": "current"
     },
     {
-      "name": "job-search-automation",
-      "full_name": "sednabcn/job-search-automation",
-      "description": "Develop tools for deploy, monitore, and tracking job search applications ",
-      "url": "https://github.com/sednabcn/job-search-automation",
+      "name": "freelance-services",
+      "full_name": "sednabcn/freelance-services",
+      "description": "AI \u00b7 Data Science \u00b7 Web Automation \u2014 Freelance services in Machine Learning, Analytics, and Automation solutions for businesses and individuals.",
+      "url": "https://github.com/sednabcn/freelance-services",
+      "stars": 0,
+      "forks": 0,
+      "language": "HTML",
+      "topics": [],
+      "created_at": "2025-10-12T17:15:39Z",
+      "updated_at": "2025-10-22T22:25:14Z",
+      "pushed_at": "2025-10-22T22:25:10Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "current"
+    },
+    {
+      "name": "advanced-job-engine",
+      "full_name": "sednabcn/advanced-job-engine",
+      "description": "Engine reverse to job search ",
+      "url": "https://github.com/sednabcn/advanced-job-engine",
       "stars": 0,
       "forks": 0,
       "language": "Python",
       "topics": [],
-      "created_at": "2025-10-10T19:20:49Z",
-      "updated_at": "2025-10-13T19:17:12Z",
-      "pushed_at": "2025-10-13T19:17:09Z",
+      "created_at": "2025-10-14T21:30:55Z",
+      "updated_at": "2025-10-19T14:57:53Z",
+      "pushed_at": "2025-10-19T14:57:49Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -1134,16 +1134,16 @@
         "percentage": 36.11111111111111
       },
       "Python": {
-        "count": 11,
-        "percentage": 30.555555555555557
+        "count": 10,
+        "percentage": 27.77777777777778
       },
       "JavaScript": {
         "count": 2,
         "percentage": 5.555555555555555
       },
       "HTML": {
-        "count": 4,
-        "percentage": 11.11111111111111
+        "count": 5,
+        "percentage": 13.88888888888889
       },
       "Rich Text Format": {
         "count": 1,
@@ -1161,16 +1161,16 @@
         "percentage": 36.11111111111111
       },
       "Python": {
-        "count": 11,
-        "percentage": 30.555555555555557
+        "count": 10,
+        "percentage": 27.77777777777778
       },
       "JavaScript": {
         "count": 2,
         "percentage": 5.555555555555555
       },
       "HTML": {
-        "count": 4,
-        "percentage": 11.11111111111111
+        "count": 5,
+        "percentage": 13.88888888888889
       },
       "Rich Text Format": {
         "count": 1,
@@ -1259,6 +1259,6 @@
     "software_engineering": 5.0,
     "research_ability": 4.0,
     "collaboration": 3.0,
-    "overall_score": 2.1944444444444446
+    "overall_score": 2.1666666666666665
   }
 }
