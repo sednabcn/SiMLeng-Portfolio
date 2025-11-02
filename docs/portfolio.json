@@ -1,6 +1,6 @@
 {
-  "total_repositories": 36,
-  "generation_date": "2025-10-26T00:59:30.285400",
+  "total_repositories": 38,
+  "generation_date": "2025-11-02T01:00:44.938437",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -229,8 +229,8 @@
       "language": "JavaScript",
       "topics": [],
       "created_at": "2024-07-27T09:13:42Z",
-      "updated_at": "2025-10-25T23:17:14Z",
-      "pushed_at": "2025-10-25T23:17:10Z",
+      "updated_at": "2025-11-01T23:18:27Z",
+      "pushed_at": "2025-11-01T23:18:24Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -258,8 +258,8 @@
       "language": "Python",
       "topics": [],
       "created_at": "2025-09-23T10:29:38Z",
-      "updated_at": "2025-10-15T14:52:44Z",
-      "pushed_at": "2025-10-15T14:52:41Z",
+      "updated_at": "2025-10-28T23:47:07Z",
+      "pushed_at": "2025-10-29T00:12:14Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -664,6 +664,35 @@
       "project_status": "past"
     },
     {
+      "name": "simleng_ai_colab",
+      "full_name": "sednabcn/simleng_ai_colab",
+      "description": "Monitor, maintenance and running tests and scripts to create a simleng_ai library ",
+      "url": "https://github.com/sednabcn/simleng_ai_colab",
+      "stars": 0,
+      "forks": 0,
+      "language": null,
+      "topics": [],
+      "created_at": "2025-10-31T13:35:50Z",
+      "updated_at": "2025-10-31T13:35:54Z",
+      "pushed_at": "2025-10-31T13:35:50Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.5,
+      "project_status": "current"
+    },
+    {
       "name": "Real-World-Statistics-Projects",
       "full_name": "sednabcn/Real-World-Statistics-Projects",
       "description": "A collection of Applied Statistics Projects is collected here ",
@@ -785,6 +814,35 @@
       "project_status": "recent"
     },
     {
+      "name": "LLM-HypatiaX-Colab",
+      "full_name": "sednabcn/LLM-HypatiaX-Colab",
+      "description": "Run the tests and scripts using GiTHub Actions ",
+      "url": "https://github.com/sednabcn/LLM-HypatiaX-Colab",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "topics": [],
+      "created_at": "2025-10-31T13:38:07Z",
+      "updated_at": "2025-11-02T00:10:23Z",
+      "pushed_at": "2025-11-02T00:10:19Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "current"
+    },
+    {
       "name": "job-search-automation",
       "full_name": "sednabcn/job-search-automation",
       "description": "Develop tools for deploy, monitore, and tracking job search applications ",
@@ -794,8 +852,8 @@
       "language": "Python",
       "topics": [],
       "created_at": "2025-10-10T19:20:49Z",
-      "updated_at": "2025-10-25T20:15:04Z",
-      "pushed_at": "2025-10-25T20:15:00Z",
+      "updated_at": "2025-11-01T20:15:53Z",
+      "pushed_at": "2025-11-01T20:15:50Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -823,8 +881,8 @@
       "language": "HTML",
       "topics": [],
       "created_at": "2025-10-12T17:15:39Z",
-      "updated_at": "2025-10-22T22:25:14Z",
-      "pushed_at": "2025-10-22T22:25:10Z",
+      "updated_at": "2025-11-01T17:19:21Z",
+      "pushed_at": "2025-11-01T17:19:17Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -852,8 +910,8 @@
       "language": "Python",
       "topics": [],
       "created_at": "2025-10-14T21:30:55Z",
-      "updated_at": "2025-10-19T14:57:53Z",
-      "pushed_at": "2025-10-19T14:57:49Z",
+      "updated_at": "2025-10-28T19:03:08Z",
+      "pushed_at": "2025-10-28T19:03:04Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -927,7 +985,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 1.0,
-      "project_status": "current"
+      "project_status": "recent"
     },
     {
       "name": "AQU-Portfolio",
@@ -1131,23 +1189,23 @@
     "languages": {
       "Jupyter Notebook": {
         "count": 13,
-        "percentage": 36.11111111111111
+        "percentage": 34.21052631578947
       },
       "Python": {
-        "count": 10,
-        "percentage": 27.77777777777778
+        "count": 11,
+        "percentage": 28.947368421052634
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 5.555555555555555
+        "percentage": 5.263157894736842
       },
       "HTML": {
         "count": 5,
-        "percentage": 13.88888888888889
+        "percentage": 13.157894736842104
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 2.7777777777777777
+        "percentage": 2.631578947368421
       }
     },
     "frameworks_summary": {},
@@ -1158,23 +1216,23 @@
     "programming_languages": {
       "Jupyter Notebook": {
         "count": 13,
-        "percentage": 36.11111111111111
+        "percentage": 34.21052631578947
       },
       "Python": {
-        "count": 10,
-        "percentage": 27.77777777777778
+        "count": 11,
+        "percentage": 28.947368421052634
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 5.555555555555555
+        "percentage": 5.263157894736842
       },
       "HTML": {
         "count": 5,
-        "percentage": 13.88888888888889
+        "percentage": 13.157894736842104
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 2.7777777777777777
+        "percentage": 2.631578947368421
       }
     },
     "ml_frameworks": {},
@@ -1259,6 +1317,6 @@
     "software_engineering": 5.0,
     "research_ability": 4.0,
     "collaboration": 3.0,
-    "overall_score": 2.1666666666666665
+    "overall_score": 2.1184210526315788
   }
 }
