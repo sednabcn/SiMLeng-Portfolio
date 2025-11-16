@@ -1,6 +1,6 @@
 {
   "total_repositories": 38,
-  "generation_date": "2025-11-09T01:00:32.288200",
+  "generation_date": "2025-11-16T01:02:03.735640",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -229,8 +229,8 @@
       "language": "JavaScript",
       "topics": [],
       "created_at": "2024-07-27T09:13:42Z",
-      "updated_at": "2025-11-08T23:18:04Z",
-      "pushed_at": "2025-11-08T23:18:00Z",
+      "updated_at": "2025-11-15T23:18:26Z",
+      "pushed_at": "2025-11-15T23:18:22Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -811,7 +811,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 1.5,
-      "project_status": "recent"
+      "project_status": "past"
     },
     {
       "name": "job-search-automation",
@@ -823,37 +823,8 @@
       "language": "Python",
       "topics": [],
       "created_at": "2025-10-10T19:20:49Z",
-      "updated_at": "2025-11-08T20:14:08Z",
-      "pushed_at": "2025-11-08T20:14:05Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 1.0,
-      "project_status": "current"
-    },
-    {
-      "name": "freelance-services",
-      "full_name": "sednabcn/freelance-services",
-      "description": "AI \u00b7 Data Science \u00b7 Web Automation \u2014 Freelance services in Machine Learning, Analytics, and Automation solutions for businesses and individuals.",
-      "url": "https://github.com/sednabcn/freelance-services",
-      "stars": 0,
-      "forks": 0,
-      "language": "HTML",
-      "topics": [],
-      "created_at": "2025-10-12T17:15:39Z",
-      "updated_at": "2025-11-08T17:19:57Z",
-      "pushed_at": "2025-11-08T17:19:53Z",
+      "updated_at": "2025-11-15T20:14:11Z",
+      "pushed_at": "2025-11-15T20:14:08Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -881,8 +852,37 @@
       "language": "Python",
       "topics": [],
       "created_at": "2025-10-31T13:38:07Z",
-      "updated_at": "2025-11-02T19:33:08Z",
-      "pushed_at": "2025-11-02T19:33:04Z",
+      "updated_at": "2025-11-15T19:42:54Z",
+      "pushed_at": "2025-11-15T19:42:50Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "current"
+    },
+    {
+      "name": "freelance-services",
+      "full_name": "sednabcn/freelance-services",
+      "description": "AI \u00b7 Data Science \u00b7 Web Automation \u2014 Freelance services in Machine Learning, Analytics, and Automation solutions for businesses and individuals.",
+      "url": "https://github.com/sednabcn/freelance-services",
+      "stars": 0,
+      "forks": 0,
+      "language": "HTML",
+      "topics": [],
+      "created_at": "2025-10-12T17:15:39Z",
+      "updated_at": "2025-11-15T17:19:51Z",
+      "pushed_at": "2025-11-15T17:19:47Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
