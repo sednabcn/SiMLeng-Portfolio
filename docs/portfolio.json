@@ -1,6 +1,6 @@
 {
   "total_repositories": 38,
-  "generation_date": "2025-11-30T01:05:16.241432",
+  "generation_date": "2025-12-07T01:05:20.555494",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -225,12 +225,12 @@
       "description": "Welcome to stem-ai-tutoring, a curated ecosystem by Dr. Ruperto Pedro Bonet Chaple, designed to showcase my professional expertise and project work in:  AI & LLMs for scientific applications Mathematical tutoring and education Simulation & domain modeling Applied research and consulting",
       "url": "https://github.com/sednabcn/stem-ai-tutoring",
       "stars": 0,
-      "forks": 1,
+      "forks": 0,
       "language": "JavaScript",
       "topics": [],
       "created_at": "2024-07-27T09:13:42Z",
-      "updated_at": "2025-11-29T23:19:28Z",
-      "pushed_at": "2025-11-29T23:19:24Z",
+      "updated_at": "2025-12-06T23:19:25Z",
+      "pushed_at": "2025-12-06T23:19:21Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -337,7 +337,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 2.5,
-      "project_status": "recent"
+      "project_status": "past"
     },
     {
       "name": "customer_satisfaction_ai",
@@ -690,7 +690,7 @@
         "has_tests": false
       },
       "ai_ml_relevance_score": 1.5,
-      "project_status": "current"
+      "project_status": "recent"
     },
     {
       "name": "Real-World-Statistics-Projects",
@@ -823,8 +823,37 @@
       "language": "Python",
       "topics": [],
       "created_at": "2025-10-10T19:20:49Z",
-      "updated_at": "2025-11-29T20:14:57Z",
-      "pushed_at": "2025-11-29T20:14:54Z",
+      "updated_at": "2025-12-06T20:14:49Z",
+      "pushed_at": "2025-12-06T20:14:46Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "current"
+    },
+    {
+      "name": "freelance-services",
+      "full_name": "sednabcn/freelance-services",
+      "description": "AI \u00b7 Data Science \u00b7 Web Automation \u2014 Freelance services in Machine Learning, Analytics, and Automation solutions for businesses and individuals.",
+      "url": "https://github.com/sednabcn/freelance-services",
+      "stars": 0,
+      "forks": 0,
+      "language": "HTML",
+      "topics": [],
+      "created_at": "2025-10-12T17:15:39Z",
+      "updated_at": "2025-12-06T17:21:54Z",
+      "pushed_at": "2025-12-06T17:21:50Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -854,35 +883,6 @@
       "created_at": "2025-10-31T13:38:07Z",
       "updated_at": "2025-11-28T21:48:36Z",
       "pushed_at": "2025-11-28T21:48:32Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 1.0,
-      "project_status": "current"
-    },
-    {
-      "name": "freelance-services",
-      "full_name": "sednabcn/freelance-services",
-      "description": "AI \u00b7 Data Science \u00b7 Web Automation \u2014 Freelance services in Machine Learning, Analytics, and Automation solutions for businesses and individuals.",
-      "url": "https://github.com/sednabcn/freelance-services",
-      "stars": 0,
-      "forks": 0,
-      "language": "HTML",
-      "topics": [],
-      "created_at": "2025-10-12T17:15:39Z",
-      "updated_at": "2025-11-24T17:25:49Z",
-      "pushed_at": "2025-11-24T17:25:46Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -1185,7 +1185,7 @@
   ],
   "insights": {
     "total_stars": 2,
-    "total_forks": 2,
+    "total_forks": 1,
     "languages": {
       "Jupyter Notebook": {
         "count": 13,
