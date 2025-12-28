@@ -1,6 +1,6 @@
 {
   "total_repositories": 38,
-  "generation_date": "2025-12-21T01:05:28.044499",
+  "generation_date": "2025-12-28T01:08:50.057172",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -229,8 +229,8 @@
       "language": "JavaScript",
       "topics": [],
       "created_at": "2024-07-27T09:13:42Z",
-      "updated_at": "2025-12-20T23:19:49Z",
-      "pushed_at": "2025-12-20T23:19:45Z",
+      "updated_at": "2025-12-27T23:20:15Z",
+      "pushed_at": "2025-12-27T23:20:11Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -823,8 +823,8 @@
       "language": "Python",
       "topics": [],
       "created_at": "2025-10-10T19:20:49Z",
-      "updated_at": "2025-12-20T20:14:56Z",
-      "pushed_at": "2025-12-20T20:14:53Z",
+      "updated_at": "2025-12-27T20:15:45Z",
+      "pushed_at": "2025-12-27T20:15:42Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
