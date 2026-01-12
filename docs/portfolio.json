@@ -1,6 +1,6 @@
 {
   "total_repositories": 38,
-  "generation_date": "2026-01-11T01:09:12.389461",
+  "generation_date": "2026-01-12T20:08:51.386425",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -229,8 +229,8 @@
       "language": "JavaScript",
       "topics": [],
       "created_at": "2024-07-27T09:13:42Z",
-      "updated_at": "2026-01-10T23:21:05Z",
-      "pushed_at": "2026-01-10T23:21:01Z",
+      "updated_at": "2026-01-12T19:22:10Z",
+      "pushed_at": "2026-01-12T19:21:55Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -823,8 +823,8 @@
       "language": "Python",
       "topics": [],
       "created_at": "2025-10-10T19:20:49Z",
-      "updated_at": "2026-01-10T20:15:29Z",
-      "pushed_at": "2026-01-10T20:15:26Z",
+      "updated_at": "2026-01-12T19:16:59Z",
+      "pushed_at": "2026-01-12T19:16:54Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -852,8 +852,8 @@
       "language": "HTML",
       "topics": [],
       "created_at": "2025-10-12T17:15:39Z",
-      "updated_at": "2026-01-10T17:24:20Z",
-      "pushed_at": "2026-01-10T17:24:17Z",
+      "updated_at": "2026-01-12T17:30:21Z",
+      "pushed_at": "2026-01-12T17:30:18Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
