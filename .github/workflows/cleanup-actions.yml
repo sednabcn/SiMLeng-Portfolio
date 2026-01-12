@@ -25,9 +25,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install gh -y
           sudo apt-get install jq -y
-      
+
       - name: Authenticate with GitHub
-        run: echo "${{ secrets.SECURITY_HUB_TOKEN }}" | gh auth login --with-token
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use default token
+        run: echo "Using GITHUB_TOKEN for authentication"
       
       - name: Cleanup Failed, Cancelled, and Timed-Out Workflow Runs
         run: |
