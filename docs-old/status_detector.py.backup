@@ -1,0 +1,197 @@
+"""Project status detection for portfolio"""
+from datetime import datetime
+from typing import Optional
+from data_models import RepositoryData
+from config_loader import PortfolioConfig
+
+def determine_project_status(repo: RepositoryData, config: Optional[PortfolioConfig] = None) -> str:
+    """
+    Determine project status based on last update date and configuration.
+    
+    Status definitions:
+    - CURRENT: Updated in last 30 days OR has 'current-project' topic
+    - RECENT: Updated in last 6 months
+    - PAST: Not updated in 6+ months OR has 'past-project'/'completed' topic
+    
+    Args:
+        repo: RepositoryData object
+        config: Optional PortfolioConfig for manual overrides
+    
+    Returns:
+        str: 'current', 'recent', or 'past'
+    """
+    # Check for manual override in config
+    if config:
+        override = config.get_status_override(repo.name)
+        if override:
+            return override.lower()
+    
+    # Check for topic-based status
+    topics_lower = [t.lower() for t in repo.topics]
+    
+    if 'current-project' in topics_lower:
+        return 'current'
+    
+    if any(keyword in topics_lower for keyword in ['past-project', 'completed', 'archived']):
+        return 'past'
+    
+    # Determine by last update date
+    try:
+        # Parse the updated_at timestamp
+        date_str = repo.updated_at
+        # Handle ISO format with timezone
+        if 'T' in date_str:
+            # Remove timezone info if present
+            date_str = date_str.split('T')[0] + 'T' + date_str.split('T')[1].split('Z')[0].split('+')[0]
+            last_update = datetime.fromisoformat(date_str.replace('Z', ''))
+        else:
+            last_update = datetime.fromisoformat(date_str)
+        
+        now = datetime.utcnow()
+        days_since_update = (now - last_update).days
+        
+        if days_since_update <= 30:
+            return 'current'
+        elif days_since_update <= 180:  # 6 months
+            return 'recent'
+        else:
+            return 'past'
+    except (ValueError, TypeError, AttributeError) as e:
+        # If date parsing fails, default to 'recent'
+        print(f"Warning: Could not parse date for {repo.name}: {e}")
+        return 'recent'
+
+
+def get_status_badge(status: str) -> dict:
+    """
+    Get display information for a status.
+    
+    Returns:
+        dict: {'emoji': str, 'label': str, 'color': str, 'description': str}
+    """
+    status_info = {
+        'current': {
+            'emoji': '🟢',
+            'label': 'CURRENT',
+            'color': '#22c55e',
+            'bg_color': '#dcfce7',
+            'text_color': '#166534',
+            'description': 'Active development'
+        },
+        'recent': {
+            'emoji': '🟡',
+            'label': 'RECENT',
+            'color': '#eab308',
+            'bg_color': '#fef9c3',
+            'text_color': '#854d0e',
+            'description': 'Recently updated'
+        },
+        'past': {
+            'emoji': '⚪',
+            'label': 'PAST',
+            'color': '#94a3b8',
+            'bg_color': '#f1f5f9',
+            'text_color': '#475569',
+            'description': 'Completed or archived'
+        }
+    }
+    
+    return status_info.get(status.lower(), status_info['recent'])
+
+
+def group_by_status(repos: list) -> dict:
+    """
+    Group repositories by their status.
+    
+    Args:
+        repos: List of RepositoryData objects
+    
+    Returns:
+        dict: {'current': [...], 'recent': [...], 'past': [...]}
+    """
+    groups = {
+        'current': [],
+        'recent': [],
+        'past': []
+    }
+    
+    for repo in repos:
+        status = getattr(repo, 'project_status', 'recent') or 'recent'
+        if status in groups:
+            groups[status].append(repo)
+        else:
+            groups['recent'].append(repo)  # Default to recent if unknown status
+    
+    return groups
+
+
+def get_status_summary(repos: list) -> dict:
+    """
+    Get summary statistics for project statuses.
+    
+    Args:
+        repos: List of RepositoryData objects
+    
+    Returns:
+        dict: Summary with counts and percentages
+    """
+    total = len(repos)
+    if total == 0:
+        return {
+            'total': 0,
+            'current': 0,
+            'recent': 0,
+            'past': 0,
+            'current_pct': 0.0,
+            'recent_pct': 0.0,
+            'past_pct': 0.0
+        }
+    
+    groups = group_by_status(repos)
+    
+    return {
+        'total': total,
+        'current': len(groups['current']),
+        'recent': len(groups['recent']),
+        'past': len(groups['past']),
+        'current_pct': round(len(groups['current']) / total * 100, 1),
+        'recent_pct': round(len(groups['recent']) / total * 100, 1),
+        'past_pct': round(len(groups['past']) / total * 100, 1)
+    }
+
+
+def sort_by_status(repos: list) -> list:
+    """
+    Sort repositories with current first, then recent, then past.
+    Within each group, sort by relevance score.
+    
+    Args:
+        repos: List of RepositoryData objects
+    
+    Returns:
+        list: Sorted list of repositories
+    """
+    status_order = {'current': 0, 'recent': 1, 'past': 2}
+    
+    return sorted(
+        repos,
+        key=lambda r: (
+            status_order.get(getattr(r, 'project_status', 'recent') or 'recent', 1),
+            -r.ai_ml_relevance_score,
+            -r.stars
+        )
+    )
+
+
+def format_status_for_display(status: str) -> str:
+    """
+    Format status string for display in UI.
+    
+    Args:
+        status: Status string ('current', 'recent', or 'past')
+    
+    Returns:
+        str: Formatted status with emoji
+    """
+    badge = get_status_badge(status)
+    return f"{badge['emoji']} {badge['label']}"

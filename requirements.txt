@@ -1,3 +1,36 @@
-aiohttp>=3.8.5
-pyyaml>=6.0
+# GitHub API
+PyGithub>=2.1.1
+
+# HTTP requests
+requests>=2.31.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# YAML configuration
+PyYAML>=6.0
+
+# Code analysis
+pygments>=2.15.0
+tree-sitter>=0.20.0
+
+# Progress bars
+tqdm>=4.65.0
+
+# HTML/Markdown generation
 jinja2>=3.1.2
+markdown>=3.4.0
+aiohttp>=3.8.5
+
+# Datetime utilities
+python-dateutil>=2.8.2
+
+# Optional: Advanced code parsing
+# lizard>=1.17.0  # Code complexity analysis
+# radon>=6.0.0    # Code metrics
+
+# Optional: ML framework detection enhancement
+# pipreqs>=0.4.13
+
+

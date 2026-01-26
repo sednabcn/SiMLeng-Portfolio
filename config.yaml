@@ -1,0 +1,202 @@
+# AI Portfolio Scanner Configuration
+
+# Framework detection patterns
+frameworks:
+  # Machine Learning frameworks
+  ml_frameworks:
+    - tensorflow
+    - pytorch
+    - scikit-learn
+    - sklearn
+    - keras
+    - xgboost
+    - lightgbm
+    - catboost
+    - jax
+    - mxnet
+  
+  # Large Language Model frameworks
+  llm_frameworks:
+    - transformers
+    - openai
+    - langchain
+    - llamaindex
+    - llama-index
+    - anthropic
+    - cohere
+    - huggingface
+    - sentence-transformers
+    - gpt4all
+  
+  # Deep Learning frameworks
+  dl_frameworks:
+    - torch
+    - tensorflow
+    - mxnet
+    - caffe
+    - theano
+    - paddle
+    - paddlepaddle
+  
+  # Data processing frameworks
+  data_frameworks:
+    - pandas
+    - numpy
+    - dask
+    - polars
+    - spark
+    - pyspark
+    - vaex
+    - modin
+  
+  # Visualization frameworks
+  viz_frameworks:
+    - matplotlib
+    - plotly
+    - seaborn
+    - bokeh
+    - altair
+    - dash
+    - streamlit
+    - gradio
+  
+  # NLP frameworks
+  nlp_frameworks:
+    - nltk
+    - spacy
+    - gensim
+    - flair
+    - textblob
+  
+  # Computer Vision frameworks
+  cv_frameworks:
+    - opencv
+    - cv2
+    - pillow
+    - torchvision
+    - albumentations
+    - mmdetection
+  
+  # Reinforcement Learning frameworks
+  rl_frameworks:
+    - gym
+    - gymnasium
+    - stable-baselines3
+    - ray
+    - rllib
+
+# Analysis configuration
+analysis:
+  # Maximum number of repositories to scan
+  max_repos: 50
+  
+  # Maximum file size to analyze (in bytes)
+  max_file_size: 1048576  # 1 MB
+  
+  # Include forked repositories
+  include_forks: false
+  
+  # Minimum stars threshold
+  min_stars: 0
+  
+  # Exclude archived repositories
+  exclude_archived: true
+  
+  # File extensions to analyze
+  code_extensions:
+    - .py
+    - .ipynb
+    - .R
+    - .jl
+    - .js
+    - .ts
+    - .java
+    - .cpp
+    - .c
+    - .h
+  
+  # File patterns to ignore
+  ignore_patterns:
+    - node_modules
+    - venv
+    - env
+    - .venv
+    - __pycache__
+    - .git
+    - .github
+    - .pytest_cache
+    - .mypy_cache
+    - dist
+    - build
+    - .egg-info
+  
+  # Repository analysis depth
+  max_depth: 3  # Directory depth to traverse
+  
+  # Number of concurrent API requests
+  concurrent_requests: 5
+
+# Output configuration
+output:
+  # Output format
+  format: json
+  
+  # Generate HTML report
+  generate_html: true
+  
+  # Generate Markdown report
+  generate_markdown: true
+  
+  # Include code samples in reports
+  include_code_samples: true
+  
+  # Maximum lines per code sample
+  max_code_sample_lines: 50
+  
+  # Generate executive summary
+  generate_executive_summary: true
+  
+  # Output file naming
+  timestamp_format: "%Y%m%d_%H%M%S"
+  output_prefix: "ai_portfolio_scan"
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: INFO
+  
+  # Save logs to file
+  save_logs: true
+  
+  # Log file naming
+  log_dir: logs
+  log_prefix: portfolio_scan
+
+# Scoring weights (for expertise calculation)
+scoring:
+  # Repository metrics
+  stars_weight: 0.2
+  forks_weight: 0.15
+  commits_weight: 0.15
+  contributors_weight: 0.1
+  
+  # Code metrics
+  code_quality_weight: 0.2
+  framework_diversity_weight: 0.1
+  documentation_weight: 0.1
+
+# GitHub API configuration
+github:
+  # API request timeout (seconds)
+  timeout: 30
+  
+  # Retry configuration
+  max_retries: 3
+  retry_delay: 2  # seconds
+  
+  # Rate limiting
+  requests_per_hour: 5000
+  
+  # Cache responses
+  enable_cache: true
+  cache_ttl: 3600  # seconds

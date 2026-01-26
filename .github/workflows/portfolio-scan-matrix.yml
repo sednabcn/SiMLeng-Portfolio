@@ -1,0 +1,101 @@
+name: Portfolio Scan Matrix
+
+on:
+  workflow_dispatch:
+    inputs:
+      users_to_scan:
+        description: 'JSON array of GitHub users to scan (e.g., ["user1", "user2"])'
+        required: true
+        type: string
+      max_repos_per_user:
+        description: 'Maximum repositories per user'
+        required: false
+        default: '30'
+        type: string
+
+jobs:
+  validate-input:
+    runs-on: ubuntu-latest
+    outputs:
+      user_matrix: ${{ steps.parse.outputs.matrix }}
+    
+    steps:
+    - name: Parse and validate user list
+      id: parse
+      run: |
+        # Validate JSON input
+        USER_INPUT='${{ github.event.inputs.users_to_scan }}'
+        
+        if ! echo "$USER_INPUT" | jq empty 2>/dev/null; then
+          echo "❌ Invalid JSON format. Expected: [\"user1\", \"user2\"]"
+          exit 1
+        fi
+        
+        # Convert to matrix format
+        MATRIX=$(echo "$USER_INPUT" | jq -c '{user: .}')
+        echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+        
+        # Print summary
+        USER_COUNT=$(echo "$USER_INPUT" | jq 'length')
+        echo "✅ Validated $USER_COUNT users for scanning" >> $GITHUB_STEP_SUMMARY
+
+  matrix-scan:
+    runs-on: ubuntu-latest
+    needs: validate-input
+    strategy:
+      matrix: ${{ fromJson(needs.validate-input.outputs.user_matrix) }}
+      max-parallel: 3
+      fail-fast: false
+    
+    steps:
+    - name: Trigger portfolio scan for ${{ matrix.user }}
+      uses: actions/github-script@v7
+      with:
+        script: |
+          console.log(`🚀 Triggering scan for user: ${{ matrix.user }}`);
+          
+          try {
+            const response = await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'ai-portfolio-scanner.yml',
+              ref: 'main',
+              inputs: {
+                target_user: '${{ matrix.user }}',
+                max_repos: '${{ github.event.inputs.max_repos_per_user }}'
+              }
+            });
+            
+            console.log(`✅ Successfully triggered scan for ${{ matrix.user }}`);
+          } catch (error) {
+            console.error(`❌ Failed to trigger scan for ${{ matrix.user }}: ${error.message}`);
+            throw error;
+          }
+
+    - name: Wait before next trigger
+      run: |
+        # Add small delay to avoid overwhelming GitHub API
+        sleep 5
+
+  summary:
+    runs-on: ubuntu-latest
+    needs: [validate-input, matrix-scan]
+    if: always()
+    
+    steps:
+    - name: Generate matrix scan summary
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const users = ${{ github.event.inputs.users_to_scan }};
+          
+          core.summary
+            .addHeading('Portfolio Matrix Scan Results', 2)
+            .addRaw(`Triggered scans for ${users.length} users\n\n`)
+            .addTable([
+              [{data: 'User', header: true}, {data: 'Status', header: true}],
+              ...users.map(user => [user, '⏳ In Progress'])
+            ])
+            .addRaw('\n\n')
+            .addRaw('Check the [Actions tab](/${{ github.repository }}/actions) for individual scan progress.')
+            .write();

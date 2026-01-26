@@ -1,0 +1,131 @@
+The error shows that even though you have a GH_PAT token, it's being denied permission. This could be due to:
+
+Token doesn't have correct permissions
+Repository settings blocking the token
+Token expired or invalid
+
+Let's fix this step by step:
+Option 1: Verify and recreate the token (Recommended)
+
+Delete the old token:
+
+Go to https://github.com/settings/tokens
+Find your old token and delete it
+
+
+Create a new token:
+
+Click Generate new token → Generate new token (classic)
+Name: Portfolio Workflow Token
+Expiration: Choose your preference
+Select these scopes (IMPORTANT):
+
+
+
+     ✅ repo (check the parent, all sub-items will be selected)
+        ✅ repo:status
+        ✅ repo_deployment
+        ✅ public_repo
+        ✅ repo:invite
+        ✅ security_events
+     ✅ workflow
+
+Click Generate token
+COPY THE TOKEN (starts with ghp_)
+
+
+Update the repository secret:
+
+Go to https://github.com/sednabcn/SiMLeng-Portfolio/settings/secrets/actions
+Click on GH_PAT
+Click Update secret
+Paste the new token
+Click Update secret
+
+
+
+Option 2: Check repository settings
+Make sure Actions can write to the repository:
+
+Go to https://github.com/sednabcn/SiMLeng-Portfolio/settings/actions
+Scroll to Workflow permissions
+Select Read and write permissions
+Check ✅ Allow GitHub Actions to create and approve pull requests
+Click Save
+
+Option 3: Use fine-grained token instead
+If classic tokens don't work, try a fine-grained token:
+
+Go to https://github.com/settings/tokens?type=beta
+Click Generate new token
+Name: Portfolio Workflow
+Repository access: Only select repositories → Choose SiMLeng-Portfolio
+Permissions:
+
+Contents: Read and write
+Metadata: Read-only (automatic)
+Workflows: Read and write
+
+
+Generate and copy the token
+Update GH_PAT secret with this new token
+
+Option 4: Simplify and use GITHUB_TOKEN
+Update the workflow to use the built-in token with proper setup:
+yamlname: Generate Portfolio
+
+on:
+  push:
+    branches: [ master, main ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: true
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install aiohttp pyyaml jinja2
+    
+    - name: Generate portfolio
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TARGET_USER: sednabcn
+      run: |
+        python .github/scripts/generate_portfolio.py
+    
+    - name: Create .nojekyll
+      run: |
+        touch docs/.nojekyll
+    
+    - name: Commit and push changes
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add -f docs/
+        
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+        
+        git commit -m "Update portfolio [skip ci]"
+        git push
+Try Option 2 first (repository settings), then Option 4 (use GITHUB_TOKEN). If those don't work, do Option 1 (recreate the token).
+Which approach do you want to try first?RetryClaude does not have the ability to run the code it generates yet.Claude can make mistakes. Please double-check responses.
