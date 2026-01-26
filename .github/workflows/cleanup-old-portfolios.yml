@@ -15,8 +15,6 @@ jobs:
       uses: actions/github-script@v7
       env:
         GH_TOKEN: ${{ github.token }}
-      run: |
-        set -e
       with:
         script: |
           console.log('🗑️  Starting artifact cleanup...');
