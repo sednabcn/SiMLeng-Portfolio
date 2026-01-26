@@ -28,7 +28,7 @@ jobs:
 
       - name: Authenticate with GitHub
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use default token
+          GH_TOKEN: ${{ github.token }}  # Use the special context, not secrets
         run: echo "Using GITHUB_TOKEN for authentication"
       
       - name: Cleanup Failed, Cancelled, and Timed-Out Workflow Runs
