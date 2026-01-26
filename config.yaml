@@ -1,6 +1,12 @@
-# AI Portfolio Scanner Configuration
+# ============================================================================
+# AI Portfolio Scanner - Comprehensive Configuration
+# ============================================================================
+# This configuration supports both the automated GitHub Actions workflows
+# and your existing portfolio generation system.
 
-# Framework detection patterns
+# ============================================================================
+# FRAMEWORK DETECTION PATTERNS
+# ============================================================================
 frameworks:
   # Machine Learning frameworks
   ml_frameworks:
@@ -85,7 +91,9 @@ frameworks:
     - ray
     - rllib
 
-# Analysis configuration
+# ============================================================================
+# ANALYSIS CONFIGURATION
+# ============================================================================
 analysis:
   # Maximum number of repositories to scan
   max_repos: 50
@@ -136,7 +144,9 @@ analysis:
   # Number of concurrent API requests
   concurrent_requests: 5
 
-# Output configuration
+# ============================================================================
+# OUTPUT CONFIGURATION
+# ============================================================================
 output:
   # Output format
   format: json
@@ -160,7 +170,9 @@ output:
   timestamp_format: "%Y%m%d_%H%M%S"
   output_prefix: "ai_portfolio_scan"
 
-# Logging configuration
+# ============================================================================
+# LOGGING CONFIGURATION
+# ============================================================================
 logging:
   # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
   level: INFO
@@ -172,7 +184,9 @@ logging:
   log_dir: logs
   log_prefix: portfolio_scan
 
-# Scoring weights (for expertise calculation)
+# ============================================================================
+# SCORING WEIGHTS (Expertise Calculation)
+# ============================================================================
 scoring:
   # Repository metrics
   stars_weight: 0.2
@@ -185,7 +199,9 @@ scoring:
   framework_diversity_weight: 0.1
   documentation_weight: 0.1
 
-# GitHub API configuration
+# ============================================================================
+# GITHUB API CONFIGURATION
+# ============================================================================
 github:
   # API request timeout (seconds)
   timeout: 30
@@ -200,3 +216,239 @@ github:
   # Cache responses
   enable_cache: true
   cache_ttl: 3600  # seconds
+
+# ============================================================================
+# PORTFOLIO FILTERING (Your Original Config)
+# ============================================================================
+
+# Repositories to EXCLUDE from portfolio (by exact name match)
+# Add repositories you don't want to appear in your portfolio
+blacklist:
+  - SiMLeng-Portfolio           # This meta-repository
+  - MAIN-PERSONAL-DOCS          # Personal documentation
+  - test-repo                   # Test repositories
+  - scratch-work                # Experimental/scratch work
+  - old-experiments             # Deprecated experiments
+  - private-notes               # Private notes
+  - learning-sandbox            # Learning/tutorial repos
+  - .github                     # GitHub config repo
+  - sednabcn.github.io         # GitHub Pages site (if not showcasing)
+  
+  # Add your own exclusions here:
+  # - another-test-repo
+  # - legacy-code
+  # - fork-of-something
+
+# Repositories to INCLUDE (whitelist mode)
+# If whitelist is defined and not empty, ONLY these repos will be included
+# Leave empty to use blacklist mode instead
+whitelist: []
+  # Example whitelist (uncomment to enable):
+  # - LLM-HypatiaX
+  # - DeepSeek-R1
+  # - deep-learning
+  # - tensorflow
+  # - Python-Reinforcement-Learning
+
+# Manual status overrides (optional)
+# Override automatic status detection for specific repositories
+# Options: 'current', 'recent', 'past'
+status_overrides:
+  # Example overrides:
+  # LLM-HypatiaX: current
+  # old-ml-project: past
+  # experimental-nlp: recent
+  
+  # Your actual overrides (customize as needed):
+  # my-current-project: current
+  # legacy-ml-model: past
+  # recent-experiment: recent
+
+# ============================================================================
+# REPOSITORY FILTERING RULES
+# ============================================================================
+
+# Minimum relevance score (0-10)
+# Repositories below this score won't be included in portfolio
+min_relevance_score: 1.0
+
+# Repository settings
+include_private: true          # Include private repositories in scan
+show_private_badge: true       # Show "Private" badge on private repos
+
+# ============================================================================
+# PORTFOLIO DISPLAY SETTINGS
+# ============================================================================
+
+# Grouping and sorting
+group_by_status: true          # Group repos by current/recent/past
+sort_by: score                 # Options: score, stars, updated, name, relevance
+
+# Display options
+display:
+  # Maximum repositories per category in HTML output
+  max_repos_per_category: 10
+  
+  # Show repository metrics
+  show_stars: true
+  show_forks: true
+  show_language: true
+  show_topics: true
+  show_last_updated: true
+  
+  # Code sample display
+  show_code_samples: true
+  max_samples_per_repo: 3
+  
+  # Framework badges
+  show_framework_badges: true
+  
+  # Activity indicators
+  show_activity_status: true
+  activity_thresholds:
+    current: 30    # Days since last update to be considered "current"
+    recent: 180    # Days since last update to be considered "recent"
+    # Anything older is "past"
+
+# ============================================================================
+# CUSTOM CATEGORIES (Your Portfolio)
+# ============================================================================
+
+# Define custom categories for your portfolio
+# Repositories will be auto-categorized based on detected frameworks
+custom_categories:
+  llm_and_ai:
+    name: "AI & LLM Projects"
+    description: "Large Language Models, NLP pipelines, and generative AI"
+    icon: "🧠"
+    priority: 1
+    required_frameworks:
+      - transformers
+      - langchain
+      - openai
+      - anthropic
+  
+  deep_learning:
+    name: "Deep Learning & Neural Networks"
+    description: "Neural network architectures and deep learning applications"
+    icon: "🤖"
+    priority: 2
+    required_frameworks:
+      - tensorflow
+      - pytorch
+      - keras
+  
+  machine_learning:
+    name: "Machine Learning Applications"
+    description: "Classical ML, ensemble methods, and applied ML solutions"
+    icon: "📊"
+    priority: 3
+    required_frameworks:
+      - scikit-learn
+      - xgboost
+      - lightgbm
+  
+  time_series:
+    name: "Time Series & Forecasting"
+    description: "Time series analysis, forecasting, and sequential modeling"
+    icon: "📈"
+    priority: 4
+    keywords:
+      - time-series
+      - forecasting
+      - prediction
+      - seq2seq
+  
+  reinforcement_learning:
+    name: "Reinforcement Learning"
+    description: "RL algorithms and agent-based systems"
+    icon: "🎮"
+    priority: 5
+    required_frameworks:
+      - gym
+      - stable-baselines3
+  
+  data_science:
+    name: "Data Science & Analytics"
+    description: "Data processing, analysis, and visualization"
+    icon: "📉"
+    priority: 6
+    required_frameworks:
+      - pandas
+      - numpy
+      - matplotlib
+  
+  quant_finance:
+    name: "Quantitative Finance"
+    description: "Financial modeling and trading algorithms"
+    icon: "💰"
+    priority: 7
+    keywords:
+      - finance
+      - trading
+      - quant
+
+# ============================================================================
+# HIGHLIGHTED PROJECTS
+# ============================================================================
+
+# Manually pin specific projects to highlight in portfolio
+# These will appear prominently in the generated portfolio
+highlighted_projects:
+  # Example (customize with your actual repos):
+  - LLM-HypatiaX
+  - DeepSeek-R1
+  - deep-learning
+  # - Python-Reinforcement-Learning
+  # - QuantFinanceModels
+
+# ============================================================================
+# CONTACT & METADATA
+# ============================================================================
+
+# Portfolio metadata (used in generated reports)
+portfolio_metadata:
+  author: "Dr. Ruperto Pedro Bonet Chaple"
+  email: "ruperto.bonet@modelphysmat.com"
+  linkedin: "https://www.linkedin.com/in/ruperto-pedro-bonet-chaple-8a26651b"
+  github: "https://github.com/sednabcn"
+  
+  # Portfolio description
+  title: "AI & Machine Learning Portfolio"
+  subtitle: "Research & Development in AI, LLMs, and Data Science"
+  
+  # Keywords for SEO
+  keywords:
+    - Artificial Intelligence
+    - Machine Learning
+    - Deep Learning
+    - Large Language Models
+    - Natural Language Processing
+    - Data Science
+    - Quantitative Finance
+    - Time Series Analysis
+    - Reinforcement Learning
+
+# ============================================================================
+# ADVANCED OPTIONS
+# ============================================================================
+
+advanced:
+  # Enable experimental features
+  experimental_features: false
+  
+  # Cache settings
+  cache_enabled: true
+  cache_directory: ".portfolio_cache"
+  cache_expiry_hours: 24
+  
+  # Parallel processing
+  max_workers: 5
+  
+  # Error handling
+  continue_on_error: true
+  max_retries_per_repo: 3
+  
+  # API optimization
+  batch_size: 10
+  rate_limit_pause: 1.0  # seconds
