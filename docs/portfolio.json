@@ -1,6 +1,6 @@
 {
-  "total_repositories": 40,
-  "generation_date": "2026-01-26T19:47:09.906182",
+  "total_repositories": 38,
+  "generation_date": "2026-01-26T19:59:53.069338",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -32,43 +32,6 @@
       },
       "ai_ml_relevance_score": 6.5,
       "project_status": "past"
-    },
-    {
-      "name": "SiMLeng-Portfolio",
-      "full_name": "sednabcn/SiMLeng-Portfolio",
-      "description": "Simulation Modelling AI Technologies Projects Consulting ",
-      "url": "https://github.com/sednabcn/SiMLeng-Portfolio",
-      "stars": 0,
-      "forks": 0,
-      "language": "Python",
-      "topics": [
-        "artificial-intelligence",
-        "computingscience",
-        "educational-project",
-        "it",
-        "simulation",
-        "strategies",
-        "technology"
-      ],
-      "created_at": "2018-11-14T14:30:30Z",
-      "updated_at": "2026-01-26T19:46:52Z",
-      "pushed_at": "2026-01-26T19:46:48Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 5.0,
-      "project_status": "current"
     },
     {
       "name": "Python-ML-Trade-Finance",
@@ -297,35 +260,6 @@
       "created_at": "2025-09-23T10:29:38Z",
       "updated_at": "2025-10-28T23:47:07Z",
       "pushed_at": "2025-10-29T00:12:14Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 2.5,
-      "project_status": "recent"
-    },
-    {
-      "name": "MAIN-PERSONAL-DOCS",
-      "full_name": "sednabcn/MAIN-PERSONAL-DOCS",
-      "description": "My files ",
-      "url": "https://github.com/sednabcn/MAIN-PERSONAL-DOCS",
-      "stars": 0,
-      "forks": 0,
-      "language": "Jupyter Notebook",
-      "topics": [],
-      "created_at": "2021-03-09T11:52:31Z",
-      "updated_at": "2025-10-28T23:07:45Z",
-      "pushed_at": "2025-10-28T23:07:40Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -1254,24 +1188,24 @@
     "total_forks": 2,
     "languages": {
       "Jupyter Notebook": {
-        "count": 14,
-        "percentage": 35.0
+        "count": 13,
+        "percentage": 34.21052631578947
       },
       "Python": {
-        "count": 12,
-        "percentage": 30.0
+        "count": 11,
+        "percentage": 28.947368421052634
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 5.0
+        "percentage": 5.263157894736842
       },
       "HTML": {
         "count": 5,
-        "percentage": 12.5
+        "percentage": 13.157894736842104
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 2.5
+        "percentage": 2.631578947368421
       }
     },
     "frameworks_summary": {},
@@ -1281,24 +1215,24 @@
   "skills": {
     "programming_languages": {
       "Jupyter Notebook": {
-        "count": 14,
-        "percentage": 35.0
+        "count": 13,
+        "percentage": 34.21052631578947
       },
       "Python": {
-        "count": 12,
-        "percentage": 30.0
+        "count": 11,
+        "percentage": 28.947368421052634
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 5.0
+        "percentage": 5.263157894736842
       },
       "HTML": {
         "count": 5,
-        "percentage": 12.5
+        "percentage": 13.157894736842104
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 2.5
+        "percentage": 2.631578947368421
       }
     },
     "ml_frameworks": {},
@@ -1317,26 +1251,6 @@
       "project_status": "past",
       "key_frameworks": [],
       "topics": [],
-      "highlights": []
-    },
-    {
-      "name": "SiMLeng-Portfolio",
-      "full_name": "sednabcn/SiMLeng-Portfolio",
-      "description": "Simulation Modelling AI Technologies Projects Consulting ",
-      "url": "https://github.com/sednabcn/SiMLeng-Portfolio",
-      "stars": 0,
-      "forks": 0,
-      "language": "Python",
-      "relevance_score": 5.0,
-      "project_status": "current",
-      "key_frameworks": [],
-      "topics": [
-        "artificial-intelligence",
-        "computingscience",
-        "educational-project",
-        "it",
-        "simulation"
-      ],
       "highlights": []
     },
     {
@@ -1380,6 +1294,20 @@
       "key_frameworks": [],
       "topics": [],
       "highlights": []
+    },
+    {
+      "name": "Python-Coursera-AI-DEEP-LEARNING",
+      "full_name": "sednabcn/Python-Coursera-AI-DEEP-LEARNING",
+      "description": "This repository contains the exercises and projects related to DEEP LEARNING along the Coursera Course entitled :",
+      "url": "https://github.com/sednabcn/Python-Coursera-AI-DEEP-LEARNING",
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "relevance_score": 3.5,
+      "project_status": "past",
+      "key_frameworks": [],
+      "topics": [],
+      "highlights": []
     }
   ],
   "expertise_metrics": {
@@ -1389,6 +1317,6 @@
     "software_engineering": 5.0,
     "research_ability": 4.0,
     "collaboration": 3.0,
-    "overall_score": 2.2
+    "overall_score": 2.1184210526315788
   }
 }
