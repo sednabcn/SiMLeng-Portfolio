@@ -1,6 +1,6 @@
 {
-  "total_repositories": 38,
-  "generation_date": "2026-02-01T01:25:22.519212",
+  "total_repositories": 39,
+  "generation_date": "2026-02-08T01:49:13.280369",
   "repositories": [
     {
       "name": "NLP-Spacy-Transformers",
@@ -229,8 +229,8 @@
       "language": "JavaScript",
       "topics": [],
       "created_at": "2024-07-27T09:13:42Z",
-      "updated_at": "2026-01-31T23:25:00Z",
-      "pushed_at": "2026-01-31T23:24:57Z",
+      "updated_at": "2026-02-07T23:32:09Z",
+      "pushed_at": "2026-02-07T23:32:06Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -814,46 +814,17 @@
       "project_status": "past"
     },
     {
-      "name": "job-search-automation",
-      "full_name": "sednabcn/job-search-automation",
-      "description": "Develop tools for deploy, monitore, and tracking job search applications ",
-      "url": "https://github.com/sednabcn/job-search-automation",
+      "name": "LLM-HypatiaX-PAPERS",
+      "full_name": "sednabcn/LLM-HypatiaX-PAPERS",
+      "description": "This repo contains all papers ,articles and reports derived from the LLM-HypatiaX project",
+      "url": "https://github.com/sednabcn/LLM-HypatiaX-PAPERS",
       "stars": 0,
       "forks": 0,
       "language": "Python",
       "topics": [],
-      "created_at": "2025-10-10T19:20:49Z",
-      "updated_at": "2026-01-31T20:17:22Z",
-      "pushed_at": "2026-01-31T20:17:19Z",
-      "frameworks": {
-        "ml_frameworks": [],
-        "llm_frameworks": [],
-        "data_frameworks": []
-      },
-      "code_analysis": {
-        "file_statistics": {
-          "python_files": 0
-        },
-        "code_patterns": {},
-        "has_notebooks": false,
-        "has_models": false,
-        "has_tests": false
-      },
-      "ai_ml_relevance_score": 1.0,
-      "project_status": "current"
-    },
-    {
-      "name": "freelance-services",
-      "full_name": "sednabcn/freelance-services",
-      "description": "AI \u00b7 Data Science \u00b7 Web Automation \u2014 Freelance services in Machine Learning, Analytics, and Automation solutions for businesses and individuals.",
-      "url": "https://github.com/sednabcn/freelance-services",
-      "stars": 0,
-      "forks": 0,
-      "language": "HTML",
-      "topics": [],
-      "created_at": "2025-10-12T17:15:39Z",
-      "updated_at": "2026-01-31T17:30:33Z",
-      "pushed_at": "2026-01-31T17:30:29Z",
+      "created_at": "2025-12-19T10:44:49Z",
+      "updated_at": "2026-02-07T21:54:57Z",
+      "pushed_at": "2026-02-07T21:52:38Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -881,8 +852,66 @@
       "language": "Python",
       "topics": [],
       "created_at": "2025-10-31T13:38:07Z",
-      "updated_at": "2026-01-31T00:53:03Z",
-      "pushed_at": "2026-01-31T00:42:28Z",
+      "updated_at": "2026-02-07T21:47:35Z",
+      "pushed_at": "2026-02-07T21:47:31Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "current"
+    },
+    {
+      "name": "job-search-automation",
+      "full_name": "sednabcn/job-search-automation",
+      "description": "Develop tools for deploy, monitore, and tracking job search applications ",
+      "url": "https://github.com/sednabcn/job-search-automation",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "topics": [],
+      "created_at": "2025-10-10T19:20:49Z",
+      "updated_at": "2026-02-07T20:18:11Z",
+      "pushed_at": "2026-02-07T20:18:08Z",
+      "frameworks": {
+        "ml_frameworks": [],
+        "llm_frameworks": [],
+        "data_frameworks": []
+      },
+      "code_analysis": {
+        "file_statistics": {
+          "python_files": 0
+        },
+        "code_patterns": {},
+        "has_notebooks": false,
+        "has_models": false,
+        "has_tests": false
+      },
+      "ai_ml_relevance_score": 1.0,
+      "project_status": "current"
+    },
+    {
+      "name": "freelance-services",
+      "full_name": "sednabcn/freelance-services",
+      "description": "AI \u00b7 Data Science \u00b7 Web Automation \u2014 Freelance services in Machine Learning, Analytics, and Automation solutions for businesses and individuals.",
+      "url": "https://github.com/sednabcn/freelance-services",
+      "stars": 0,
+      "forks": 0,
+      "language": "HTML",
+      "topics": [],
+      "created_at": "2025-10-12T17:15:39Z",
+      "updated_at": "2026-02-07T17:32:40Z",
+      "pushed_at": "2026-02-07T17:32:37Z",
       "frameworks": {
         "ml_frameworks": [],
         "llm_frameworks": [],
@@ -1189,23 +1218,23 @@
     "languages": {
       "Jupyter Notebook": {
         "count": 13,
-        "percentage": 34.21052631578947
+        "percentage": 33.33333333333333
       },
       "Python": {
-        "count": 11,
-        "percentage": 28.947368421052634
+        "count": 12,
+        "percentage": 30.76923076923077
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 5.263157894736842
+        "percentage": 5.128205128205128
       },
       "HTML": {
         "count": 5,
-        "percentage": 13.157894736842104
+        "percentage": 12.82051282051282
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 2.631578947368421
+        "percentage": 2.564102564102564
       }
     },
     "frameworks_summary": {},
@@ -1216,23 +1245,23 @@
     "programming_languages": {
       "Jupyter Notebook": {
         "count": 13,
-        "percentage": 34.21052631578947
+        "percentage": 33.33333333333333
       },
       "Python": {
-        "count": 11,
-        "percentage": 28.947368421052634
+        "count": 12,
+        "percentage": 30.76923076923077
       },
       "JavaScript": {
         "count": 2,
-        "percentage": 5.263157894736842
+        "percentage": 5.128205128205128
       },
       "HTML": {
         "count": 5,
-        "percentage": 13.157894736842104
+        "percentage": 12.82051282051282
       },
       "Rich Text Format": {
         "count": 1,
-        "percentage": 2.631578947368421
+        "percentage": 2.564102564102564
       }
     },
     "ml_frameworks": {},
@@ -1317,6 +1346,6 @@
     "software_engineering": 5.0,
     "research_ability": 4.0,
     "collaboration": 3.0,
-    "overall_score": 2.1184210526315788
+    "overall_score": 2.08974358974359
   }
 }
